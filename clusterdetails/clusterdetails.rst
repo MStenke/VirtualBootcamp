@@ -7,7 +7,7 @@ Bootcamp Cluster Details
 Cluster Hardware Details
 ++++++++++++++++++++++++
 
-**Hardware Modell: NX-3060 (Hybrid)**
+**Hardware Modell: NX-3060 G5 (Hybrid)**
 
 .. figure:: images/cluster3060g5a.png
 
@@ -20,15 +20,13 @@ Cluster Hardware Details
    * - **CPU-Modell**
      - Intel(R) Xeon(R) CPU E5-2680 v2 @ 2.20GHz
    * - **CPU-Cores**
-     - 20 Core je Node | 80 Cores im Cluster
+     - 24 Core je Node | 96 Cores im Cluster
    * - **CPU-Taktrate**
-     - 56 GHz je Node  | 224 GHz im Cluster
+     - 52,8 GHz je Node  | 211,2 GHz im Cluster
    * - **Arbeitsspeicher**
      - 256 GB je Node  | 1.024 GB im Cluster
    * - **SSD-Kapazität**
-     - 800 GB je Node | 3.200 GB im Cluster
-   * - **HDD-Kapazität**
-     -   4 TB je Node |    16 TB im Cluster
+     - 3,84 GB je Node | 15,36 TB im Cluster
 
 .. note::
   Bedenken Sie bitte, dass diese Technology-Bootcamp-Testumgebung zum einen nicht auf der neuesten Hardware basiert und das zum anderen auf Grund der Entfernung zum Lab-Datacenter entsprechende Latenzen auftreten können. Nichtsdestotrotz lassen sich mit dieser Umgebung die typischen Routineaufgaben bzgl. einer Nutanix-Cluster-Plattform mit einer ausgezeichneten User-Experience testen.
@@ -45,21 +43,21 @@ Infrastruktur IPs
      - Hypervisors
      - IPMI
    * - **Position A**
-     - 10.42.85.29
-     - 10.42.85.25
-     - 10.42.85.33
+     - 10.42.113.29
+     - 10.42.113.25
+     - 10.42.113.33
    * - **Position B**
-     - 10.42.85.30
-     - 10.42.85.26
-     - 10.42.85.34
+     - 10.42.113.30
+     - 10.42.113.26
+     - 10.42.113.34
    * - **Position C**
-     - 10.42.85.31
-     - 10.42.85.27
-     - 10.42.85.35
+     - 10.42.113.31
+     - 10.42.113.27
+     - 10.42.113.35
    * - **Position D**
-     - 10.42.85.32
-     - 10.42.85.28
-     - 10.42.85.36
+     - 10.42.113.32
+     - 10.42.113.28
+     - 10.42.113.36
 
 .. list-table::
    :widths: 20 10
@@ -68,9 +66,9 @@ Infrastruktur IPs
    * - Services
      - IP-Adressen
    * - **Virtuelle IP Adresse Cluster**
-     - 10.42.85.37
+     - 10.42.113.37
    * - **iSCSI Data Services IP**
-     - 10.42.85.38
+     - 10.42.113.38
 
 
 Virtuelle Maschinen
@@ -86,17 +84,12 @@ Die folgenden VMs wurden bereits auf dem Cluster ausgerollt:
      - IP-Adresse
      - Beschreibung
    * - **Prism Central**
-     - 10.42.85.39
+     - 10.42.113.39
      - Nutanix Prism Central
    * - **AutoDC2**
-     - 10.42.85.40
+     - 10.42.113.40
      - ntnxlab.local Domain Controller
-   * - **X-Ray 3.4.0**
-     - 10.42.85.47
-     - X-Ray VM
-   * - **Move**
-     - 10.42.85.46
-     - Move VM
+
 
 Images / VM Vorlagen & ISOs
 ++++++++++++++++++++++++++++
@@ -163,16 +156,16 @@ Die folgende Tabelle führt die standardmäßig hinterlegten Zugangsdaten für d
     - ADMIN
   * - **Prism Element**
     - admin
-    - nx2Tech282!
+    - nx2Tech050!
   * - **Prism Element VM's**
     - nutanix
-    - nx2Tech282!
+    - nx2Tech050!
   * - **Prism Central**
     - admin
-    - nx2Tech282!
+    - nx2Tech050!
   * - **Prism Central VM**
     - nutanix
-    - nx2Tech282!
+    - nx2Tech050!
   * - **NTNXLAB Domain**
     - NTNXLAB\\Administrator
     - nutanix/4u
@@ -225,26 +218,26 @@ Die folgenden virtuellen Netzwerke wurden wie folgt vorkonfiguriert:
      - **Sekundäres** Netzwerk
    * - **VLAN**
      - 0
-     - 851
+     - 1131
    * - **Netzwerk IP Adresse**
-     - 10.42.85.0
-     - 10.42.85.128
+     - 10.42.113.0
+     - 10.42.113.128
    * - **Netzmaske**
      - 255.255.255.128 (/25)
      - 255.255.255.128 (/25)
    * - **Default Gateway**
-     - 10.42.85.1
-     - 10.42.85.129
+     - 10.42.113.1
+     - 10.42.113.129
    * - **IP Address Management (IPAM)**
      - Aktiviert
      - Aktiviert
    * - **DHCP Pool**
-     - 10.42.85.50  - 125
-     - 10.42.85.132 - 253
+     - 10.42.113.50  - 125
+     - 10.42.113.132 - 253
    * - **Domain**
      - NTNXLAB.local
      - NTNXLAB.local
    * - **DNS**
-     - 10.42.85.40 (DC VM)
-     - 10.42.85.40 (DC VM)
+     - 10.42.113.40 (DC VM)
+     - 10.42.113.40 (DC VM)
    

@@ -1,4 +1,4 @@
-.. title:: Nutanix Technology Bootcamp Essen
+.. title:: Nutanix Technology Bootcamp Stuttgart
 
 .. toctree::
    :maxdepth: 2

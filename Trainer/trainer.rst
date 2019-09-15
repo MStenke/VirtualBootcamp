@@ -15,7 +15,7 @@ Nutzen Sie die Chance und stellen Ihre Fragen frei heraus!
    :header-rows: 1
 
    * - **Martin Stenke**
-   * - .. figure:: images/MStenke.jpg
+   * - .. figure:: images/MStenke.png
    * - **Senior Systems Engineer**
    * - Leonberg, Baden-Wuerttemberg
    * - Seit September 2018 bei Nutanix

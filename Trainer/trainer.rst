@@ -14,9 +14,8 @@ Nutzen Sie die Chance und stellen Ihre Fragen frei heraus!
    :widths: 40
    :header-rows: 1
 
-   * - **Dipl.-Ing. Günter Baumgart**
-   * - .. figure:: images/Guenter_Baumgart.jpg
+   * - **Martin Stenke**
+   * - .. figure:: images/MStenke.jpg
    * - **Senior Systems Engineer**
-   * - Essen, Nordrhein-Westfalen
+   * - Leonberg, Baden-Wuerttemberg
    * - Seit September 2018 bei Nutanix
-   * - *Liebt den Geruch von ge"move"ten" VM's!*

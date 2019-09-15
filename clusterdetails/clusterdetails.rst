@@ -18,7 +18,7 @@ Cluster Hardware Details
    * - Eigenschaft
      - Ausstattung
    * - **CPU-Modell**
-     - Intel(R) Xeon(R) CPU E5-2680 v2 @ 2.20GHz
+     - Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
    * - **CPU-Cores**
      - 24 Core je Node | 96 Cores im Cluster
    * - **CPU-Taktrate**

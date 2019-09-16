@@ -87,7 +87,7 @@ Die folgenden VMs wurden bereits auf dem Cluster ausgerollt:
      - 10.42.113.39
      - Nutanix Prism Central
    * - **AutoDC2**
-     - 10.42.113.40
+     - 10.42.113.41
      - ntnxlab.local Domain Controller
    * - **X-Ray**
      - 10.42.113.125

@@ -109,7 +109,13 @@ Die folgenden Disk-Images & ISOs wurden bereits im Vorfeld auf den Cluster hochg
    * - **CentOS7.qcow2**
      - DISK
      - Ein bereits vorgefertigtes CentOS 7 Disk Image
-   * - **MSSQL-2016-VM.qcow2**
+   * - **hycu-3.5.0-6253.qcow2**
+     - DISK
+     - Ein bereits vorgefertigtes HYCU Disk Image
+   * - **Linux_ToolsVM.qcow2**
+     - DISK
+     - Ein vorkonfiguriertes Linux Image  + Tools Disk Image
+     * - **MSSQL-2016-VM.qcow2**
      - DISK
      - Ein Windows Server 2016 Standard Image mit MS SQL 2016 vorinstalliert.
    * - **Nutanix-VirtIO-1.1.3.iso**
@@ -156,16 +162,16 @@ Die folgende Tabelle führt die standardmäßig hinterlegten Zugangsdaten für d
     - ADMIN
   * - **Prism Element**
     - admin
-    - nx2Tech050!
+    - ntnx4Stgt!
   * - **Prism Element VM's**
     - nutanix
-    - nx2Tech050!
+    - ntnx4Stgt!
   * - **Prism Central**
     - admin
-    - nx2Tech050!
+    - ntnx4Stgt!
   * - **Prism Central VM**
     - nutanix
-    - nx2Tech050!
+    - ntnx4Stgt!
   * - **NTNXLAB Domain**
     - NTNXLAB\\Administrator
     - nutanix/4u

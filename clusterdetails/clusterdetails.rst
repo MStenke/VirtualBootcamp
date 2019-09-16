@@ -118,7 +118,7 @@ Die folgenden Disk-Images & ISOs wurden bereits im Vorfeld auf den Cluster hochg
    * - **Linux_ToolsVM.qcow2**
      - DISK
      - Ein vorkonfiguriertes Linux Image  + Tools Disk Image
-     * - **MSSQL-2016-VM.qcow2**
+   * - **MSSQL-2016-VM.qcow2**
      - DISK
      - Ein Windows Server 2016 Standard Image mit MS SQL 2016 vorinstalliert.
    * - **Nutanix-VirtIO-1.1.3.iso**

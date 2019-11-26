@@ -12,7 +12,7 @@ Cluster Hardware Details
 .. figure:: images/cluster3060g5a.png
 
 .. note::
-  Bedenken Sie bitte, dass diese Technology-Bootcamp-Testumgebung zum einen nicht auf der neuesten Hardware basiert und das zum anderen auf Grund der Entfernung zum Lab-Datacenter entsprechende Latenzen auftreten können. Nichtsdestotrotz lassen sich mit dieser Umgebung die typischen Routineaufgaben bzgl. einer Nutanix-Cluster-Plattform mit einer ausgezeichneten User-Experience testen.
+  Bedenken Sie bitte, dass diese Testumgebung zum einen nicht auf der neuesten Hardware basiert und das zum anderen auf Grund der Entfernung zum Lab-Datacenter entsprechende Latenzen auftreten können. Nichtsdestotrotz lassen sich mit dieser Umgebung die typischen Routineaufgaben bzgl. einer Nutanix-Cluster-Plattform mit einer ausgezeichneten User-Experience testen.
 
 Infrastruktur IPs
 +++++++++++++
@@ -26,21 +26,21 @@ Infrastruktur IPs
      - Hypervisors
      - IPMI
    * - **Position A**
-     - 10.42.236.29
-     - 10.42.236.25
-     - 10.42.236.33
+     - 10.42.193.29
+     - 10.42.193.25
+     - 10.42.193.33
    * - **Position B**
-     - 10.42.236.30
-     - 10.42.236.26
-     - 10.42.236.34
+     - 10.42.193.30
+     - 10.42.193.26
+     - 10.42.193.34
    * - **Position C**
-     - 10.42.236.31
-     - 10.42.236.27
-     - 10.42.236.35
+     - 10.42.193.31
+     - 10.42.193.27
+     - 10.42.193.35
    * - **Position D**
-     - 10.42.236.32
-     - 10.42.236.28
-     - 10.42.236.36
+     - 10.42.193.32
+     - 10.42.193.28
+     - 10.42.193.36
 
 .. list-table::
    :widths: 20 10
@@ -49,9 +49,9 @@ Infrastruktur IPs
    * - Services
      - IP-Adressen
    * - **Virtuelle IP Adresse Cluster**
-     - 10.42.236.37
+     - 10.42.193.37
    * - **iSCSI Data Services IP**
-     - 10.42.236.38
+     - 10.42.193.38
 
 
 Virtuelle Maschinen
@@ -67,13 +67,13 @@ Die folgenden VMs wurden bereits auf dem Cluster ausgerollt:
      - IP-Adresse
      - Beschreibung
    * - **Prism Central**
-     - 10.42.113.39
+     - 10.42.193.39
      - Nutanix Prism Central
    * - **AutoDC2**
-     - 10.42.113.41
+     - 10.42.193.41
      - ntnxlab.local Domain Controller
    * - **X-Ray**
-     - 10.42.113.125
+     - 10.42.193.125
      - HCI Benchmarking Tool
 
 
@@ -212,24 +212,24 @@ Die folgenden virtuellen Netzwerke wurden wie folgt vorkonfiguriert:
      - 0
      - 2361
    * - **Netzwerk IP Adresse**
-     - 10.42.236.0
-     - 10.42.236.128
+     - 10.42.193.0
+     - 10.42.193.128
    * - **Netzmaske**
      - 255.255.255.128 (/25)
      - 255.255.255.128 (/25)
    * - **Default Gateway**
-     - 10.42.236.1
-     - 10.42.236.129
+     - 10.42.193.1
+     - 10.42.193.129
    * - **IP Address Management (IPAM)**
      - Aktiviert
      - Aktiviert
    * - **DHCP Pool**
-     - 10.42.236.50  - 125
-     - 10.42.236.132 - 253
+     - 10.42.193.50  - 125
+     - 10.42.193.132 - 253
    * - **Domain**
      - NTNXLAB.local
      - NTNXLAB.local
    * - **DNS**
-     - 10.42.236.40 (DC VM)
-     - 10.42.236.40 (DC VM)
+     - 10.42.193.40 (DC VM)
+     - 10.42.193.40 (DC VM)
    

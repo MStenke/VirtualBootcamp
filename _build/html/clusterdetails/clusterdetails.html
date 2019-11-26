@@ -233,7 +233,7 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Bedenken Sie bitte, dass diese Technology-Bootcamp-Testumgebung zum einen nicht auf der neuesten Hardware basiert und das zum anderen auf Grund der Entfernung zum Lab-Datacenter entsprechende Latenzen auftreten können. Nichtsdestotrotz lassen sich mit dieser Umgebung die typischen Routineaufgaben bzgl. einer Nutanix-Cluster-Plattform mit einer ausgezeichneten User-Experience testen.</p>
+<p>Bedenken Sie bitte, dass diese Testumgebung zum einen nicht auf der neuesten Hardware basiert und das zum anderen auf Grund der Entfernung zum Lab-Datacenter entsprechende Latenzen auftreten können. Nichtsdestotrotz lassen sich mit dieser Umgebung die typischen Routineaufgaben bzgl. einer Nutanix-Cluster-Plattform mit einer ausgezeichneten User-Experience testen.</p>
 </div>
 </div>
 <div class="section" id="infrastruktur-ips">
@@ -254,24 +254,24 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p><strong>Position A</strong></p></td>
-<td><p>10.42.236.29</p></td>
-<td><p>10.42.236.25</p></td>
-<td><p>10.42.236.33</p></td>
+<td><p>10.42.193.29</p></td>
+<td><p>10.42.193.25</p></td>
+<td><p>10.42.193.33</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Position B</strong></p></td>
-<td><p>10.42.236.30</p></td>
-<td><p>10.42.236.26</p></td>
-<td><p>10.42.236.34</p></td>
+<td><p>10.42.193.30</p></td>
+<td><p>10.42.193.26</p></td>
+<td><p>10.42.193.34</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Position C</strong></p></td>
-<td><p>10.42.236.31</p></td>
-<td><p>10.42.236.27</p></td>
-<td><p>10.42.236.35</p></td>
+<td><p>10.42.193.31</p></td>
+<td><p>10.42.193.27</p></td>
+<td><p>10.42.193.35</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Position D</strong></p></td>
-<td><p>10.42.236.32</p></td>
-<td><p>10.42.236.28</p></td>
-<td><p>10.42.236.36</p></td>
+<td><p>10.42.193.32</p></td>
+<td><p>10.42.193.28</p></td>
+<td><p>10.42.193.36</p></td>
 </tr>
 </tbody>
 </table>
@@ -287,10 +287,10 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p><strong>Virtuelle IP Adresse Cluster</strong></p></td>
-<td><p>10.42.236.37</p></td>
+<td><p>10.42.193.37</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>iSCSI Data Services IP</strong></p></td>
-<td><p>10.42.236.38</p></td>
+<td><p>10.42.193.38</p></td>
 </tr>
 </tbody>
 </table>
@@ -312,15 +312,15 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p><strong>Prism Central</strong></p></td>
-<td><p>10.42.113.39</p></td>
+<td><p>10.42.193.39</p></td>
 <td><p>Nutanix Prism Central</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>AutoDC2</strong></p></td>
-<td><p>10.42.113.41</p></td>
+<td><p>10.42.193.41</p></td>
 <td><p>ntnxlab.local Domain Controller</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>X-Ray</strong></p></td>
-<td><p>10.42.113.125</p></td>
+<td><p>10.42.193.125</p></td>
 <td><p>HCI Benchmarking Tool</p></td>
 </tr>
 </tbody>
@@ -509,32 +509,32 @@
 <td><p>2361</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Netzwerk IP Adresse</strong></p></td>
-<td><p>10.42.236.0</p></td>
-<td><p>10.42.236.128</p></td>
+<td><p>10.42.193.0</p></td>
+<td><p>10.42.193.128</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Netzmaske</strong></p></td>
 <td><p>255.255.255.128 (/25)</p></td>
 <td><p>255.255.255.128 (/25)</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Default Gateway</strong></p></td>
-<td><p>10.42.236.1</p></td>
-<td><p>10.42.236.129</p></td>
+<td><p>10.42.193.1</p></td>
+<td><p>10.42.193.129</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>IP Address Management (IPAM)</strong></p></td>
 <td><p>Aktiviert</p></td>
 <td><p>Aktiviert</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>DHCP Pool</strong></p></td>
-<td><p>10.42.236.50  - 125</p></td>
-<td><p>10.42.236.132 - 253</p></td>
+<td><p>10.42.193.50  - 125</p></td>
+<td><p>10.42.193.132 - 253</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Domain</strong></p></td>
 <td><p>NTNXLAB.local</p></td>
 <td><p>NTNXLAB.local</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>DNS</strong></p></td>
-<td><p>10.42.236.40 (DC VM)</p></td>
-<td><p>10.42.236.40 (DC VM)</p></td>
+<td><p>10.42.193.40 (DC VM)</p></td>
+<td><p>10.42.193.40 (DC VM)</p></td>
 </tr>
 </tbody>
 </table>

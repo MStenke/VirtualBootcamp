@@ -164,12 +164,7 @@ Die folgende Tabelle führt die standardmäßig hinterlegten Zugangsdaten für d
   * - **CentOS VM Image**
     - root
     - nutanix/4u
-  * - **X-Ray VM**
-    - root
-    - nutanix/4u
-  * - **Move**
-    - nutanix
-    - nutanix/4u
+
 
 Darüber hinaus besitzt der Cluster eine dedizierte Domain-Controller-VM, welche die Active-Directory-Services für die **NTNXLAB.local** Domain bereitstellt. Die Domain wurde mit den folgenden Nutzern und Gruppen vorkonfiguriert:
 
@@ -210,7 +205,7 @@ Die folgenden virtuellen Netzwerke wurden wie folgt vorkonfiguriert:
      - **Sekundäres** Netzwerk
    * - **VLAN**
      - 0
-     - 2361
+     - 1933
    * - **Netzwerk IP Adresse**
      - 10.42.193.0
      - 10.42.193.128

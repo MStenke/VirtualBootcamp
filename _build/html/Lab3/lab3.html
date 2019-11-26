@@ -1,0 +1,401 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lab 3: Netzwerk Konfiguration &mdash; Nutanix Technology Bootcamp  documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lab 4: Bereitstellen von Workloads" href="../Lab4/lab4.html" />
+    <link rel="prev" title="Lab 2: Storage Konfiguration" href="../Lab2/lab2.html" />
+ 
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #024DA1" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Nutanix Technology Bootcamp
+          
+
+          
+            
+            <img src="../_static/Logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">BootCamp Infos</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Trainer/trainer.html">Ihr Drill Instructor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clusteraccess/clusteraccess.html">Zugang zur Lab Umgebung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../clusteraccess/clusteraccess.html#zugangs-ubersicht">Zugangs-Übersicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../clusteraccess/clusteraccess.html#pulse-secure-vpn-client-empfohlen">Pulse Secure VPN Client (empfohlen)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../clusteraccess/clusteraccess.html#parallels-vdi-zugang-optional">Parallels VDI Zugang (optional)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../clusterdetails/clusterdetails.html">Bootcamp Cluster Details</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../clusterdetails/clusterdetails.html#cluster-hardware-details">Cluster Hardware Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../clusterdetails/clusterdetails.html#infrastruktur-ips">Infrastruktur IPs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../clusterdetails/clusterdetails.html#virtuelle-maschinen">Virtuelle Maschinen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../clusterdetails/clusterdetails.html#images-vm-vorlagen-isos">Images / VM Vorlagen &amp; ISOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../clusterdetails/clusterdetails.html#zugangsdaten">Zugangsdaten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../clusterdetails/clusterdetails.html#netzwerk">Netzwerk</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Labs</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Lab1/lab1.html">Lab 1: Überblick</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lab1/lab1.html#prism-element">Prism Element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab1/lab1.html#fragen-zu-prism-element">Fragen zu Prism Element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab1/lab1.html#zusammenfassung">Zusammenfassung</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Lab2/lab2.html">Lab 2: Storage Konfiguration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lab2/lab2.html#distributed-storage-fabric">Distributed Storage Fabric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab2/lab2.html#anlegen-konfiguration-eines-storage-containers">Anlegen &amp; Konfiguration eines Storage Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab2/lab2.html#redundancy-factor-rf">Redundancy Factor (RF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab2/lab2.html#zusammenfassung">Zusammenfassung</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lab 3: Netzwerk Konfiguration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ahv-netzwerk-grundlagen">AHV Netzwerk-Grundlagen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#virtuelle-netzwerke">Virtuelle Netzwerke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#virtual-nics">Virtual NICs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ip-address-management-ipam">IP Address Management (IPAM)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#netzwerk-konfiguration">Netzwerk-Konfiguration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#nutzer-vm-netzwerk-einrichten">Nutzer VM Netzwerk einrichten</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nutzer-vm-netzwerk-mit-ipam-einrichten">Nutzer VM Netzwerk mit IPAM einrichten</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#zusammenfassung">Zusammenfassung</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Lab4/lab4.html">Lab 4: Bereitstellen von Workloads</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lab4/lab4.html#image-service">Image Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab4/lab4.html#bereitstellen-einer-linux-vm-disk-image">Bereitstellen einer Linux-VM (Disk-Image)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab4/lab4.html#bereitstellen-einer-windows-vm-iso">Bereitstellen einer Windows VM (ISO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab4/lab4.html#zusammenfassung">Zusammenfassung</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Lab5/lab5.html">Lab 5: Verwalten von Workloads</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lab5/lab5.html#power-actions-und-console-zugang">Power-Actions und Console-Zugang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab5/lab5.html#vm-cloning">VM-Cloning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab5/lab5.html#vm-migration">VM-Migration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab5/lab5.html#affinity-policies">Affinity-Policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab5/lab5.html#high-availability-dynamic-scheduling">High Availability &amp; Dynamic Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab5/lab5.html#zusammenfassung">Zusammenfassung</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Lab6/lab6.html">Lab 6: Data Protection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lab6/lab6.html#vm-snapshots">VM-Snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab6/lab6.html#protection-domains">Protection-Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab6/lab6.html#zusammenfassung">Zusammenfassung</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Lab7/lab7.html">Lab 7: Prism Central</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lab7/lab7.html#suchfunktion">Suchfunktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab7/lab7.html#reports">Reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab7/lab7.html#capacity-planning">Capacity Planning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab7/lab7.html#what-if-planning">What If Planning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab7/lab7.html#zusammenfassung">Zusammenfassung</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Nutanix Technology Bootcamp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Lab 3: Netzwerk Konfiguration</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lab-3-netzwerk-konfiguration">
+<h1>Lab 3: Netzwerk Konfiguration<a class="headerlink" href="#lab-3-netzwerk-konfiguration" title="Permalink to this headline">¶</a></h1>
+<p><strong>Lernen Sie wie Sie mit Prism Netzwerk-Konnektivität im Cluster konfigurieren können. Die Netzwerke die Sie im folgenden erstellen, erlauben eine VM Konnektivität durch das Zuweisen der entsprechenden Netzwerke an die jeweiligen VM NIC’s.</strong></p>
+<div class="section" id="ahv-netzwerk-grundlagen">
+<h2>AHV Netzwerk-Grundlagen<a class="headerlink" href="#ahv-netzwerk-grundlagen" title="Permalink to this headline">¶</a></h2>
+<p>AHV nutzt Open vSwitch (OVS) für alle VM Netzwerk Konfiguration. OVS ist ein Open Source Software Switch welcher im Linux Kernel implementiert  und speziell für eine Multiserver Virtualisierungs-Umgebung designed wurde. Jeder AHV Server hat eine OVS Instanz und alle OVS Instanzen, miteinander kombiniert, formen einen logischen Switch.</p>
+<p>Jeder Node ist dabei typischerweise mit einem oder mehreren physischen Switch Ports verbunden, welche mehrere trunked/tagged VLANs enthalten, die dann als virtuelle Netzwerke verwendet werden.</p>
+<p>Das ganze können Sie auch in der Prism UI sehr schön sehen: In <strong>Prism Element &gt; Network</strong>.</p>
+<div class="figure align-default">
+<img alt="../_images/network_config_07.png" src="../_images/network_config_07.png" />
+</div>
+<p>Dort sehen Sie welche VMs mit welchen VLANs hinterlegt sind, auf welchem Host diese laufen und mit wievielen und welchen aktiven/standby Pfaden der jeweilige Host mit dem Netzwerk verbunden ist. Sie können sich jetzt auch auf dem Host die jeweilige OVS Switch Konfiguration anschauen in dem Sie auf einen Host klicken, z.B. <strong>Host 1</strong>:</p>
+<div class="figure align-default">
+<img alt="../_images/network_config_08.png" src="../_images/network_config_08.png" />
+</div>
+<p>Die VM Netzwerk Konfiguration kann durch  Prism vorgenommen werden (oder optional per CLI bzw. REST API), sodass das Netzwerk Management in AHV sehr einfach ist. In der folgenden Übung werden Sie durch die virtuelle Netzwerk-Erstellung in AHV geführt. Mit AHV können Sie ebenfalls einen DHCP einrichten der automatisch IP Adressen für VMs bereitstellt - hierfür kommt der IP Address Management (IPAM) Service zum Einsatz. Weitere Details über AHV Netzwerktechnik kann <a class="reference external" href="https://nutanixbible.com/#anchor-book-of-ahv-networking">hier</a>  gefunden werden.</p>
+<div class="section" id="virtuelle-netzwerke">
+<h3>Virtuelle Netzwerke<a class="headerlink" href="#virtuelle-netzwerke" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Ähnlich einer “distributed Switch portgroup”</p></li>
+<li><p>Jede virtuelle NIC (vNIC) gehört genau zu einem virtuellen Netzwerk (vNET)</p></li>
+<li><p>Jedes virtuelle Netzwerk ist die zentrale Konfigurationsstelle für eine Gruppe vNICs</p></li>
+<li><p>Der physikalische Switch-Port muss als Trunk VLAN Port definiert sein</p></li>
+</ul>
+</div></blockquote>
+<div class="figure align-default">
+<img alt="../_images/network_config_001.png" src="../_images/network_config_001.png" />
+</div>
+</div>
+<div class="section" id="virtual-nics">
+<h3>Virtual NICs<a class="headerlink" href="#virtual-nics" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Jede vNIC gehört genau zu einem virtuellen Netzwerk (vNET)</p></li>
+<li><p>Bei Netzwerken, bei denen IPAM aktiviert ist, erhalten die vNICs lebenslange statische IP Zuweisungen</p></li>
+<li><p>Nutzer können Pools konfigurieren um automatisch oder manuell IP Adressen zuzuweisen</p></li>
+</ul>
+</div></blockquote>
+<div class="figure align-default">
+<img alt="../_images/network_config_02.png" src="../_images/network_config_02.png" />
+</div>
+</div>
+<div class="section" id="ip-address-management-ipam">
+<h3>IP Address Management (IPAM)<a class="headerlink" href="#ip-address-management-ipam" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Integrierter DHCP Server</p></li>
+<li><p>AHV fängt DHCP Anfragen von Gästen in dem IPAM Netzwerk ab und injiziert Antworten</p></li>
+<li><p>Der Virtualisierungs-Admin verwaltet einen Bereich von IP Adressen</p></li>
+<li><p>Unterstützt beliebige DHCP Optionen - mit UI Unterstützung für DNS und TFTP Konfigurationen</p></li>
+</ul>
+</div></blockquote>
+<div class="figure align-default">
+<img alt="../_images/network_config_06.png" src="../_images/network_config_06.png" />
+</div>
+</div>
+</div>
+<div class="section" id="netzwerk-konfiguration">
+<h2>Netzwerk-Konfiguration<a class="headerlink" href="#netzwerk-konfiguration" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In der folgenden Übung werden Sie Netzwerke mit ungültigen VLANs anlegen über welche kein Netzwerk Traffic außerhalb des jeweiligen Host transportiert werden kann. Dieses Verhalten ist zu erwarten, da die Netzwerke in diesem Fall nur zu Übungszwecken angelegt werden sollen.</p>
+</div>
+<div class="section" id="nutzer-vm-netzwerk-einrichten">
+<h3>Nutzer VM Netzwerk einrichten<a class="headerlink" href="#nutzer-vm-netzwerk-einrichten" title="Permalink to this headline">¶</a></h3>
+<p>Verbinden Sie sich mit Prism Element und erstellen ein Netzwerk für eine Nutzer VM NIC. Verwenden Sie irgendein VLAN (außer 0 und ihr Primäres / Sekundäres VLAN) und aktivieren Sie <em>kein IP Address Management</em>.</p>
+<ol class="arabic">
+<li><p>In <strong>Prism Element &gt; VM</strong>, klick <strong>VMs</strong>, dann klick <strong>Network Config</strong>.</p></li>
+<li><p>Selektieren Sie <strong>VM Networks</strong>, dann klicken Sie <strong>+ Create Network</strong>.</p></li>
+<li><p>Füllen Sie die folgenden Felder aus und klicken <strong>Save</strong>:</p>
+<ul class="simple">
+<li><p><strong>Name</strong> - <em>Initialen</em>-Netzwerk</p></li>
+<li><p><strong>VLAN ID</strong> - ein Wert (&lt; 4096) und nicht Ihre <strong>Primären</strong> oder <strong>Sekundären</strong> Netzwerk VLANs</p></li>
+<li><p>Aktivieren Sie <em>kein</em> <strong>Enable IP Address Management</strong></p></li>
+</ul>
+<p>Das finale Ergebnis sollte wie folgt aussehen:</p>
+<div class="figure align-default">
+<img alt="../_images/network_config_04.png" src="../_images/network_config_04.png" />
+</div>
+<p>Dieses konfigurierte virtuelle Netzwerk wird nun auf jedem Node im Cluster zur Verfügung stehen. Virtuelle Netzwerke in AHV verhalten sich wie der Distributed Virtual Switch (vDS) in vSphere, d.h. Sie müssen die Einstellungen nicht auf jedem einzelnen Host im Cluster individuell konfigurieren. Wenn Sie VMs in IPAM verwalteten Netzwerken anlegen, kann die IP optional dennoch manuell während der vNIC Erstellung spezifiziert werden.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="nutzer-vm-netzwerk-mit-ipam-einrichten">
+<h3>Nutzer VM Netzwerk mit IPAM einrichten<a class="headerlink" href="#nutzer-vm-netzwerk-mit-ipam-einrichten" title="Permalink to this headline">¶</a></h3>
+<p>Legen Sie ein weiteres Netzwerk an - dieses Mal allerdings mit <strong>IPAM aktiviert</strong>.</p>
+<ol class="arabic">
+<li><p>Füllen Sie die folgenden Felder aus und klicken auf <strong>Save</strong>:</p>
+<ul class="simple">
+<li><p><strong>Name</strong> - <em>Initialen</em>-Netzwerk_IPAM</p></li>
+<li><p><strong>VLAN ID</strong> - ein Wert (&lt; 4096) und nicht Ihre <strong>Primären</strong> oder <strong>Sekundären</strong> Netzwerk VLANs</p></li>
+<li><p>Selektieren Sie <strong>Enable IP Address Management</strong></p></li>
+<li><p><strong>Network IP Address / Prefix Length</strong> - 10.0.0.0/24</p></li>
+<li><p><strong>Gateway</strong> - 10.0.0.1</p></li>
+<li><p>Selektieren Sie <em>nicht</em> <strong>Configure Domain Settings</strong></p></li>
+<li><p><strong>Create Pool</strong> - 10.0.0.100-10.0.0.150</p></li>
+<li><p>Selektieren Sie <em>nicht</em> <strong>Override DHCP Server</strong></p></li>
+</ul>
+<div class="figure align-default">
+<img alt="../_images/network_config_03.png" src="../_images/network_config_03.png" />
+</div>
+<div class="figure align-default">
+<img alt="../_images/network_config_05.png" src="../_images/network_config_05.png" />
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Es ist möglich mehrere Pools mit eigenen IP-Adress-Bereichen für ein Netzwerk anzulegen.</p>
+</div>
+<p>Das konfigurierte virtuelle Netzwerk steht jetzt allen Nodes im Cluster zur Verfügung. Die vNICs der VMs auf diesem Netzwerk werden DHCP Adressen aus dem hinterlegten Adress Bereich erhalten. Diese IP Zuweisungen bleiben für die gesamte Lebensdauer der VMs bestehen. Somit werden Abhängigkeiten von DHCP Reservierungen oder statischen IPs für viele Anwendungen vermieden.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sie können die nun erstellten zwei Netzwerke, später während der Erstellung einer VM mit zwei vNICs nutzen und überprüfen, ob sich beide Netzwerke auch wie erwartet verhalten. Dazu verbinden Sie eine der beiden vNICs der VM mit dem Netzwerk welches Ihnen eine DHCP-Adresse mittels IPAM zuweist und verbinden anschließend die zweite vNIC der VM mit dem Netzwerk in dem keine IP-Adresse zugewiesen wird.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="zusammenfassung">
+<h2>Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Wie Sie sehen können ist es sehr einfach ein individuelles Netzwerk innerhalb eines Clusters zu erstellen.</p></li>
+<li><p>Auch die Erstellung eines Netzwerkes in dem IPAM mit individuellen IP-Pools genutzt werden kann ist extrem einfach und schnell zu konfigurieren.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Lab4/lab4.html" class="btn btn-neutral float-right" title="Lab 4: Bereitstellen von Workloads" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Lab2/lab2.html" class="btn btn-neutral float-left" title="Lab 2: Storage Konfiguration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nutanix Germany GmbH | 
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,383 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lab 2: Storage Konfiguration &mdash; Nutanix Technology Bootcamp  documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lab 3: Netzwerk Konfiguration" href="../Lab3/lab3.html" />
+    <link rel="prev" title="Lab 1: Überblick" href="../Lab1/lab1.html" />
+ 
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #024DA1" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Nutanix Technology Bootcamp
+          
+
+          
+            
+            <img src="../_static/Logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">BootCamp Infos</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Trainer/trainer.html">Ihr Drill Instructor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clusteraccess/clusteraccess.html">Zugang zur Lab Umgebung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../clusteraccess/clusteraccess.html#zugangs-ubersicht">Zugangs-Übersicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../clusteraccess/clusteraccess.html#pulse-secure-vpn-client-empfohlen">Pulse Secure VPN Client (empfohlen)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../clusteraccess/clusteraccess.html#parallels-vdi-zugang-optional">Parallels VDI Zugang (optional)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../clusterdetails/clusterdetails.html">Bootcamp Cluster Details</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../clusterdetails/clusterdetails.html#cluster-hardware-details">Cluster Hardware Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../clusterdetails/clusterdetails.html#infrastruktur-ips">Infrastruktur IPs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../clusterdetails/clusterdetails.html#virtuelle-maschinen">Virtuelle Maschinen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../clusterdetails/clusterdetails.html#images-vm-vorlagen-isos">Images / VM Vorlagen &amp; ISOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../clusterdetails/clusterdetails.html#zugangsdaten">Zugangsdaten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../clusterdetails/clusterdetails.html#netzwerk">Netzwerk</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Labs</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Lab1/lab1.html">Lab 1: Überblick</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lab1/lab1.html#prism-element">Prism Element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab1/lab1.html#fragen-zu-prism-element">Fragen zu Prism Element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab1/lab1.html#zusammenfassung">Zusammenfassung</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lab 2: Storage Konfiguration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#distributed-storage-fabric">Distributed Storage Fabric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anlegen-konfiguration-eines-storage-containers">Anlegen &amp; Konfiguration eines Storage Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#redundancy-factor-rf">Redundancy Factor (RF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zusammenfassung">Zusammenfassung</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Lab3/lab3.html">Lab 3: Netzwerk Konfiguration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lab3/lab3.html#ahv-netzwerk-grundlagen">AHV Netzwerk-Grundlagen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Lab3/lab3.html#virtuelle-netzwerke">Virtuelle Netzwerke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lab3/lab3.html#virtual-nics">Virtual NICs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lab3/lab3.html#ip-address-management-ipam">IP Address Management (IPAM)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab3/lab3.html#netzwerk-konfiguration">Netzwerk-Konfiguration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Lab3/lab3.html#nutzer-vm-netzwerk-einrichten">Nutzer VM Netzwerk einrichten</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lab3/lab3.html#nutzer-vm-netzwerk-mit-ipam-einrichten">Nutzer VM Netzwerk mit IPAM einrichten</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab3/lab3.html#zusammenfassung">Zusammenfassung</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Lab4/lab4.html">Lab 4: Bereitstellen von Workloads</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lab4/lab4.html#image-service">Image Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab4/lab4.html#bereitstellen-einer-linux-vm-disk-image">Bereitstellen einer Linux-VM (Disk-Image)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab4/lab4.html#bereitstellen-einer-windows-vm-iso">Bereitstellen einer Windows VM (ISO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab4/lab4.html#zusammenfassung">Zusammenfassung</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Lab5/lab5.html">Lab 5: Verwalten von Workloads</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lab5/lab5.html#power-actions-und-console-zugang">Power-Actions und Console-Zugang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab5/lab5.html#vm-cloning">VM-Cloning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab5/lab5.html#vm-migration">VM-Migration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab5/lab5.html#affinity-policies">Affinity-Policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab5/lab5.html#high-availability-dynamic-scheduling">High Availability &amp; Dynamic Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab5/lab5.html#zusammenfassung">Zusammenfassung</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Lab6/lab6.html">Lab 6: Data Protection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lab6/lab6.html#vm-snapshots">VM-Snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab6/lab6.html#protection-domains">Protection-Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab6/lab6.html#zusammenfassung">Zusammenfassung</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Lab7/lab7.html">Lab 7: Prism Central</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lab7/lab7.html#suchfunktion">Suchfunktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab7/lab7.html#reports">Reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab7/lab7.html#capacity-planning">Capacity Planning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab7/lab7.html#what-if-planning">What If Planning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab7/lab7.html#zusammenfassung">Zusammenfassung</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Nutanix Technology Bootcamp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Lab 2: Storage Konfiguration</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lab-2-storage-konfiguration">
+<h1>Lab 2: Storage Konfiguration<a class="headerlink" href="#lab-2-storage-konfiguration" title="Permalink to this headline">¶</a></h1>
+<p><strong>In diesem Lab werden Sie mit Prism Element basis Storage Container Operationen durchführen.</strong></p>
+<div class="section" id="distributed-storage-fabric">
+<h2>Distributed Storage Fabric<a class="headerlink" href="#distributed-storage-fabric" title="Permalink to this headline">¶</a></h2>
+<p>Die Nutanix Distributed Storage Fabric (DSF) präsentiert sich dem Hypervisor wie jedes anderes zentrales Storage Array, nutzt aber die CVMs und lokalen Storage in jedem Node um Shared Storage für das Cluster bereitzustellen - die Kombination aus Server und verteiltem lokalem Storage ist was üblicherweise als <strong>Hyperconverged Infrastructure (HCI)</strong> bezeichnet wird.</p>
+<div class="figure align-default">
+<img alt="../_images/dsf_overview.png" src="../_images/dsf_overview.png" />
+</div>
+<p>Als ein Pioneer in dem HCI Umfeld liefert die Nutanix DSF eine bewährte Lösung welche Performance und Ausfallsicherheit bietet um <a class="reference external" href="https://www.nutanix.com/solutions/">viele verschiedene Anwendungen</a> zu betreiben, z.B. Enterprise Datenbanken, virtuelle Desktops, ROBO, Big Data, etc.</p>
+<p>Die beiden Haupt-Storage Komponenten innerhalb der DSF sind <strong>Storage Pools</strong> und <strong>Storage Container</strong>.</p>
+<p>Der <strong>Storage Pool</strong> ist die Aggregierung aller physischen Disks innerhalb eines Nutanix Clusters. Das Cluster verwaltet die Verteilung der Daten, sodass <strong>keine</strong> zusätzliche Konfiguration von weiteren Storage Pools (wie etwa mit LUNs bei traditionellem Storage) notwendig ist. Sobald neue Nodes dem Cluster hinzugefügt werden, werden die Disks automatisch dem Pool hinzugefügt und das Cluster beginnt im Hintergrund mit <a class="reference external" href="https://nutanixbible.com/#anchor-book-of-acropolis-disk-balancing">dem Umverteilen der Daten zu den neuen Disks</a>.</p>
+<p><strong>Storage Container</strong> sind Software-definierte, logische Konstrukte welche es Ihnen erlauben Storage Policies / Richtlinien für Gruppen von VMs oder vDisks zu konfigurieren (Container sind ähnlich wie Datastores in ESXi). In dem folgenden Lab werden Sie den Prozess für das Anlegen und Konfigurieren von Storage mit Nutanix Prism Element durchlaufen.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Um mehr über zusätzliche DSF Konstrukte wie vDisks, Extents und Extent Groups zu lernen, schauen Sie sich <a class="reference external" href="https://nutanixbible.com/#anchor-book-of-acropolis-distributed-storage-fabric">diese Sektion der Nutanix Bible</a> an.</p>
+</div>
+</div>
+<div class="section" id="anlegen-konfiguration-eines-storage-containers">
+<h2>Anlegen &amp; Konfiguration eines Storage Containers<a class="headerlink" href="#anlegen-konfiguration-eines-storage-containers" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>In <strong>Prism Element&gt; Storage</strong>, Klick <strong>Storage</strong>, Klick <strong>Table</strong>, dann Klick <strong>+ Storage Container</strong>.</p></li>
+<li><p>Nutzen Sie die folgenden Parameter:</p>
+<ul class="simple">
+<li><p><strong>Name</strong> - <em>Initialen</em>-container</p></li>
+<li><p>Auswahl von <strong>Advanced Settings</strong></p></li>
+<li><p><strong>Advertised Capacity</strong> - 500 GiB</p></li>
+<li><p>Selektieren von <strong>Compression</strong></p></li>
+<li><p><strong>Delay (In Minutes)</strong> - 0</p></li>
+</ul>
+</li>
+<li><p>Klick <strong>Save</strong>.</p>
+<div class="figure align-default">
+<img alt="../_images/storage_config_01.png" src="../_images/storage_config_01.png" />
+</div>
+<p>Der Storage Container steht nun allen Nodes innerhalb des Clusters zur Verfügung - ohne dass sonstige Schritte notwendig sind (kein LUN Zoning, etc. notwendig).</p>
+<p>In AHV erstellt der Hypervisor eine separate iSCSI Verbindung zu der DSF für jede vDisk die verwendet wird. In ESXi Umgebungen wird jeder <strong>Storage Container</strong> automatisch als ein NFS Datastore beim Hypervisor gemounted. Ähnlich in Hyper-V, dort ist jeder <strong>Storage Container</strong> als ein SMB Datastore präsentiert.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Beispiel Ansicht eines <strong>Storage Containers</strong> aus Prism:</p>
+<div class="figure align-default">
+<img alt="../_images/nutanix_tech_overview_13.png" src="../_images/nutanix_tech_overview_13.png" />
+</div>
+<p>Beispiel Ansicht eines <strong>Storage Containers</strong> (datastores) in vCenter:</p>
+<div class="figure align-default">
+<img alt="../_images/nutanix_tech_overview_14.png" src="../_images/nutanix_tech_overview_14.png" />
+</div>
+</div>
+<p>Sie können mehrere Container mit verschiedenen Policies / Richtlinien erstellen, alle nutzen die Storage Kapazität des <strong>Storage Pool’s</strong>.</p>
+<p>Zum Beispiel können Sie <a class="reference external" href="https://nutanixbible.com/#anchor-book-of-acropolis-elastic-dedupe-engine">Deduplizierung</a> für einen Storage Container aktivieren, welcher für “Full Clone’s” von persistenten Virtual Desktops verwendet wird. Hingegen macht Deduplizierung keinen Sinn für Anwendungen wie Datenbanken. Analog möchten Sie z.B. einen Storage Container anlegen, welcher <a class="reference external" href="https://nutanixbible.com/#anchor-book-of-acropolis-erasure-coding">Erasure Coding</a> für Archiv Daten wie Backups oder Filmmaterial aus Überwachungskamera’s aktiviert hat.</p>
+</li>
+<li><p>Werfen Sie einen tieferen Blick in die Storage Container Konfiguration, indem Sie Ihre Konfiguration <em>updaten</em>. Wie würden Sie Kapazität für kritische VMs auf einem Cluster mit gemischten Anwendungen reservieren?</p></li>
+<li><p>Wählen Sie verschiedene Storage Container auf dem Cluster aus und schauen Sie sich die <strong>Storage Container Details</strong> wie in der unten stehenden Ansicht genauer an.</p>
+<div class="figure align-default">
+<img alt="../_images/storage_config_04.png" src="../_images/storage_config_04.png" />
+</div>
+<p>Diese Ansicht liefert Ihnen eine Aufschlüsselung der Kapazitätseinsparungen von jeder verfügbaren / aktivierten Data Reduction Option, sowie die <strong>Effective Usable Capacity</strong> des Containers. Fahren Sie mit Ihrer Maus über jeden blau hinterlegten Hyperlink für mehr Details wie sich die Einsparung zusammensetzt. Die <strong>Data Reduction Ratio</strong> ist die Data Reduction Efficiency wenn <strong>lediglich</strong> Komprimierung, Deduplizierung und Erasure Coding miteinbezogen werden. Das <strong>Overall Efficiency</strong> Verhältnis misst sowohl Data Reduction als auch native Datenvermeidung in DSF, insbesondere Einsparungen durch Thin Provisioning und Cloning.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Interessiert wieviel logische Storage Kapazität Nutanix in verschiedenen RF2 oder RF3 Konfigurationen bereitstellen kann? Probieren Sie den <a class="reference external" href="https://services.nutanix.com/#/storage-capacity-calculator">Nutanix Storage Calculator</a> aus.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="redundancy-factor-rf">
+<h2>Redundancy Factor (RF)<a class="headerlink" href="#redundancy-factor-rf" title="Permalink to this headline">¶</a></h2>
+<p>Die Distributed Storage Fabric verwendet einen software gesteuerten Replication Factor (RF) Lösungsansatz um eine Ausfallsicherheit zu gewähleisten und steht damit im Gegensatz klassischen RAID Technologien. Standardmäßig speichert Nutanix zwei Kopien der Daten mit der Möglichkeit einen kompletten Node Ausfall zu überstehen - dies wird als <strong>RF2</strong> bezeichnet. Für sehr große Cluster oder kritische Workloads kann Nutanix auch 3 Kopien der Daten speichern - mit der Möglichkeit zwei Node Ausfälle zu überstehen. Dies wird als <strong>RF3</strong> bezeichnet.</p>
+<p>Interessiert daran mehr über RF Schreib- und Lesevorgänge zu lernen? Schauen Sie sich das unten stehende Video genauer an!</p>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/OWhdo81yTpk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>RF Policies / Richtlinien werden auf Storage Container Ebene mit Prism Element erstellt.</p>
+<p>Nutanix Cluster können auch <a class="reference external" href="https://nutanixbible.com/#anchor-book-of-acropolis-availability-domains">Verfügbarkeits-Domain Richtlinien</a> auf Block oder Rack Level einrichten. Schauen Sie sich dies in Prism Element an: <strong>Prism Element &gt; Settings</strong>, dann Klick auf <strong>Rack Configuration</strong>.</p>
+<div class="figure align-default">
+<img alt="../_images/storage_config_05.png" src="../_images/storage_config_05.png" />
+</div>
+<p>Weil in der Testumgebung nur 1 Block mit 4 Nodes hinterlegt ist, lässt sich nun lediglich eine Node “Fault Tolerance” simulieren (welche aber bei Default bereits gegeben ist). Nichtsdestotrotz ist es wichtig zu sehen wie einfach solche eine Konfiguration vorgenommen werden kann und daher wird einmal kurz der Prozess für Node Fault Tolerance durchlaufen (abgewandelt dann gültig für Rack oder Block Fault Tolerance möglich). Die Selektion auf <strong>Node</strong> belassen und auf <strong>Next</strong>. Danach ein <strong>Rack anlegen &amp; benennen</strong> und den <strong>Block hinzufügen</strong>, danach auf <strong>Save</strong>.</p>
+<div class="figure align-default">
+<img alt="../_images/storage_config_06.png" src="../_images/storage_config_06.png" />
+</div>
+<p>Block Awareness stellt in ausreichend großen Clustern sicher, dass die zweiten Kopien der Daten nicht auf einen Knoten im gleichen Block (im gleichen physischen Gehäuse) geschrieben werden, auf welchem bereits die erste Kopie liegt. Dies erlaubt den kompletten Ausfall eines ganzen Multi-Node Blocks ohne, dass eine Daten-Nichtverfügbarkeit eintritt. Das gleiche Konzept kann für Nutanix Cluster angewendet werden, die mehrere Racks umfassen. Die Mindestanforderung für Rack / Block Fault Tolerance ist es Minimum 3 Blöcke in dem Cluster zu haben (für RF2), da wir 3 Kopien an Metadaten abspeichern.</p>
+<ol class="arabic simple">
+<li><p>Schauen wir uns nun nocheinmal den generellen RF Faktor für das gesamte vorliegende Cluster an. In <strong>Prism &gt; Home</strong>, Klick <strong>OK</strong> in die <strong>Data Resiliency Status</strong> Box.</p></li>
+</ol>
+<blockquote>
+<div><div class="figure align-default">
+<img alt="../_images/storage_config_03.png" src="../_images/storage_config_03.png" />
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Der Data Resiliency Status zeigt an wieviele Ausfälle ohne Auswirkungen auf das Cluster eintreten können. Jeder aufgeführte Service hat eine spezielle Funktion im Cluster, z.B. die Zookeeper Nodes schützen die Konfigurations Daten (Service States, IP’s, Host Informationen, etc) für das Cluster.</p>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>Der RF eines Clusters kann in Prism Element konfiguriert werden: <strong>Prism Element &gt; Settings</strong>, dann Klick auf <strong>Redundancy State</strong></p></li>
+</ol>
+<blockquote>
+<div><div class="figure align-default">
+<img alt="../_images/storage_config_07.png" src="../_images/storage_config_07.png" />
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Für diese Testumgebung den Redundancy Faktor bitte auf <strong>RF 2 belassen</strong>. Generell kann ein RF2 Cluster im laufendem Betrieb angepasst werden um RF3 zu unterstützen. Allerdings werden dafür minimum 5 Nodes benötigt. Wenn ein Cluster für RF3 konfiguriert ist, werden 5 Kopien an Metadaten für alle Daten erstellt - unabhängig davon ob die individuellen Storage Container als RF2 oder RF3 konfiguriert wurden.</p>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="zusammenfassung">
+<h2>Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permalink to this headline">¶</a></h2>
+<p>Die Distributed Storage Fabric bietete eine Verfügbarkeit von Redundanz Faktor 2 (RF2) oder Redundanz Faktor 3 (RF3) für den geteilten Storage des Clusters. Storage Container erlauben Ihnen Storage Policies für VMs anzulegen welche etwa Redundanz Faktor (RF2/3), Komprimierung, Deduplizierung und Erasure Coding umfassen.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Lab3/lab3.html" class="btn btn-neutral float-right" title="Lab 3: Netzwerk Konfiguration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Lab1/lab1.html" class="btn btn-neutral float-left" title="Lab 1: Überblick" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nutanix Germany GmbH | 
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

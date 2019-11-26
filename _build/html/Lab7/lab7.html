@@ -1,0 +1,423 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lab 7: Prism Central &mdash; Nutanix Technology Bootcamp  documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Lab 6: Data Protection" href="../Lab6/lab6.html" />
+ 
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #024DA1" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Nutanix Technology Bootcamp
+          
+
+          
+            
+            <img src="../_static/Logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">BootCamp Infos</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Trainer/trainer.html">Ihr Drill Instructor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clusteraccess/clusteraccess.html">Zugang zur Lab Umgebung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../clusteraccess/clusteraccess.html#zugangs-ubersicht">Zugangs-Übersicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../clusteraccess/clusteraccess.html#pulse-secure-vpn-client-empfohlen">Pulse Secure VPN Client (empfohlen)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../clusteraccess/clusteraccess.html#parallels-vdi-zugang-optional">Parallels VDI Zugang (optional)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../clusterdetails/clusterdetails.html">Bootcamp Cluster Details</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../clusterdetails/clusterdetails.html#cluster-hardware-details">Cluster Hardware Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../clusterdetails/clusterdetails.html#infrastruktur-ips">Infrastruktur IPs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../clusterdetails/clusterdetails.html#virtuelle-maschinen">Virtuelle Maschinen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../clusterdetails/clusterdetails.html#images-vm-vorlagen-isos">Images / VM Vorlagen &amp; ISOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../clusterdetails/clusterdetails.html#zugangsdaten">Zugangsdaten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../clusterdetails/clusterdetails.html#netzwerk">Netzwerk</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Labs</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Lab1/lab1.html">Lab 1: Überblick</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lab1/lab1.html#prism-element">Prism Element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab1/lab1.html#fragen-zu-prism-element">Fragen zu Prism Element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab1/lab1.html#zusammenfassung">Zusammenfassung</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Lab2/lab2.html">Lab 2: Storage Konfiguration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lab2/lab2.html#distributed-storage-fabric">Distributed Storage Fabric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab2/lab2.html#anlegen-konfiguration-eines-storage-containers">Anlegen &amp; Konfiguration eines Storage Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab2/lab2.html#redundancy-factor-rf">Redundancy Factor (RF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab2/lab2.html#zusammenfassung">Zusammenfassung</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Lab3/lab3.html">Lab 3: Netzwerk Konfiguration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lab3/lab3.html#ahv-netzwerk-grundlagen">AHV Netzwerk-Grundlagen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Lab3/lab3.html#virtuelle-netzwerke">Virtuelle Netzwerke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lab3/lab3.html#virtual-nics">Virtual NICs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lab3/lab3.html#ip-address-management-ipam">IP Address Management (IPAM)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab3/lab3.html#netzwerk-konfiguration">Netzwerk-Konfiguration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Lab3/lab3.html#nutzer-vm-netzwerk-einrichten">Nutzer VM Netzwerk einrichten</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Lab3/lab3.html#nutzer-vm-netzwerk-mit-ipam-einrichten">Nutzer VM Netzwerk mit IPAM einrichten</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab3/lab3.html#zusammenfassung">Zusammenfassung</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Lab4/lab4.html">Lab 4: Bereitstellen von Workloads</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lab4/lab4.html#image-service">Image Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab4/lab4.html#bereitstellen-einer-linux-vm-disk-image">Bereitstellen einer Linux-VM (Disk-Image)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab4/lab4.html#bereitstellen-einer-windows-vm-iso">Bereitstellen einer Windows VM (ISO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab4/lab4.html#zusammenfassung">Zusammenfassung</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Lab5/lab5.html">Lab 5: Verwalten von Workloads</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lab5/lab5.html#power-actions-und-console-zugang">Power-Actions und Console-Zugang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab5/lab5.html#vm-cloning">VM-Cloning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab5/lab5.html#vm-migration">VM-Migration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab5/lab5.html#affinity-policies">Affinity-Policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab5/lab5.html#high-availability-dynamic-scheduling">High Availability &amp; Dynamic Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab5/lab5.html#zusammenfassung">Zusammenfassung</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Lab6/lab6.html">Lab 6: Data Protection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lab6/lab6.html#vm-snapshots">VM-Snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab6/lab6.html#protection-domains">Protection-Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lab6/lab6.html#zusammenfassung">Zusammenfassung</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lab 7: Prism Central</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#suchfunktion">Suchfunktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reports">Reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#capacity-planning">Capacity Planning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-if-planning">What If Planning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zusammenfassung">Zusammenfassung</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Nutanix Technology Bootcamp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Lab 7: Prism Central</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lab-7-prism-central">
+<h1>Lab 7: Prism Central<a class="headerlink" href="#lab-7-prism-central" title="Permalink to this headline">¶</a></h1>
+<p><strong>In diesem Lab erfahren Sie nun einiges über die Prism Central Multi-Cluster-Verwaltung, die Suchfunktionalität, die Überwachung und Ressourcen Planung die Ihnen dabei hilft Engpässe zu vermeiden und zukünftiges Wachstum perfekt planen zu können</strong>.</p>
+<p>Nachdem Sie sich in <em>Prism Central</em> eingeloggt haben, machen Sie sich zunächst mit der Oberfläche von Prism Central vertraut. Schauen Sie sich die Informationen auf dem Dashboard an und erkunden die einzelnen Unterpunkte des <em>Hauptmenüs</em> links oben in der Leiste über dem Dashboard.</p>
+<div class="section" id="suchfunktion">
+<h2>Suchfunktion<a class="headerlink" href="#suchfunktion" title="Permalink to this headline">¶</a></h2>
+<p>Die Prism Central Suchfunktion hilft Ihnen dabei Probleme schnell zu indentifizieren und die entsprechende Dokumentation schneller auffinden zu können. Anhand ein paar einfacher Suchabfragen können die gewünschten Informationen direkt über die zentrale Suche gefunden werden ohne langwierig in irgendwelchen Menüstrukturen suchen zu müssen! Klicken Sie auf das <strong>Help Icon</strong> oben rechts in der Menüleiste und dann auf <strong>Learn about search</strong> um die umfangreichen Suchparameter einzusehen.</p>
+<div class="figure align-default">
+<img alt="../_images/lab7-1.png" src="../_images/lab7-1.png" />
+</div>
+<dl class="simple">
+<dt>Testen Sie ein paar Suchabfragen um mit der Syntax vertraut zu werden:</dt><dd><ul class="simple">
+<li><p>vm cpu &gt; 1</p></li>
+<li><p>vm mem &gt; 2</p></li>
+<li><p>vm iops &gt; 50</p></li>
+<li><p>Hosts “cpu usage” &gt; 95</p></li>
+<li><p>etc.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Der <em>Hotkey</em> um die Suche zu aktivieren ist ein <strong>Schrägstrich (slash mark)</strong> bzw. das <strong>“/”</strong> Symbol welches von überall in der Prism Central Oberfläche verwendet werden kann. Wenn Sie eine Suchanfrage erstellt haben und diese dann auch noch speichen möchten, dann klicken Sie einfach auf das <strong>Stern</strong> Symbol und die Suchanfrage wird im Hauptmenü gespeichert.</p>
+<div class="figure align-default">
+<img alt="../_images/lab7-2.png" src="../_images/lab7-2.png" />
+</div>
+</div>
+</div>
+<div class="section" id="reports">
+<h2>Reports<a class="headerlink" href="#reports" title="Permalink to this headline">¶</a></h2>
+<p>Prism Central bietet Ihnen die Möglichkeit historische Auswertungen bzgl. Ihrer Umgebung zu generieren. Solche Reports können u. a. die Auslastung der Ressourcen, ungewöhnliches Verhalten von VMs und viel andere operationale Informationen und Ereignisse enthalten.</p>
+<ol class="arabic">
+<li><p>Klicken Sie im Hauptmenü auf <strong>Prism Central Hauptemnü &gt; Operations &gt; Reports</strong>.</p></li>
+<li><p>Testen Sie den Report <strong>Cluster Efficiency Summary</strong> oder den <strong>Environment Summary</strong> Report. Wählen Sie einen der beiden Reports aus und starten dann <strong>Run</strong> innerhalb des Dropdown-Menüs <strong>Actions</strong>.</p></li>
+<li><p>Im nächsten Schritt füllen Sie die Felder des Formulars aus und klicken dann auf <strong>Run</strong>:</p>
+<ul class="simple">
+<li><p><strong>Report instance Name</strong> : <em>Initialen</em>-BeispielReport</p></li>
+<li><p><strong>Time Period for Report</strong> : Last 24 Hours</p></li>
+<li><p><strong>Report Format</strong> : Report Format auswählen (hier pdf-Format)</p></li>
+<li><p><strong>Email Report</strong> : Diese Option wird in diesem Lab nicht verwendet, bietet Ihnen aber generall eine bequeme Möglichkeit diese Reports regelmäßig an eine eMail-Adresse senden zu lassen.</p></li>
+</ul>
+<blockquote>
+<div><div class="figure align-default">
+<img alt="../_images/lab7-3.png" src="../_images/lab7-3.png" />
+</div>
+</div></blockquote>
+</li>
+<li><p>Klicken Sie nun auf den Report und anschließend unter Download auf pdf. Sie können sich nun Ihren Report als <strong>PDF</strong> bzw.  als <strong>CSV</strong> Datei <strong>herunterladen</strong> und anschauen.</p></li>
+</ol>
+<div class="figure align-default">
+<img alt="../_images/lab7-4.png" src="../_images/lab7-4.png" />
+</div>
+</div>
+<div class="section" id="capacity-planning">
+<h2>Capacity Planning<a class="headerlink" href="#capacity-planning" title="Permalink to this headline">¶</a></h2>
+<p>Nutzen Sie <strong>Prism Central</strong> um <strong>Capacity Plannings (Kapazitäts-Planungen)</strong> durchzuführen. Hierbei werden Ihnen Informationen über die Auslastung Ihres Clusters bzw. Ihrer Umgebung generiert. Weiter können Sie Ihr System auch anweisen, Ihnen automatisch Handlungsempfehlungen im Hinblick auf ungeplante Zusatzbelastungen zu erstellen.</p>
+<ol class="arabic">
+<li><p>Im <strong>Prism Central Menu &gt; Operations &gt; Planning &gt; Capacity Runway</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Unter <strong>Runway Summary</strong> finden Sie Ihre an Prism Central angebundenen Cluster aufgelistet. Wenn Sie nun auf einen der Cluster klicken, bekommen Sie den Zeitraum in Tagen angezeigt bis der Cluster an sein Ressourcen-Limit läuft. D.h. wie lange dauert es noch bis der aktuelle Cluster-Memory, die CPU-Ressourcen oder storageseitig das System in einen Engpass gerät? Hier nun ein Beispiel wie das ganze sich darstellen könnte:</p>
+<div class="figure align-default">
+<img alt="../_images/lab7-5.png" src="../_images/lab7-5.png" />
+</div>
+</div>
+</li>
+</ol>
+<ol class="arabic" start="3">
+<li><p>Wählen Sie den <strong>Cluster</strong> aus.</p>
+<ul>
+<li><p>Die <strong>am meisten limitierte Ressource</strong> wird auf der linken Seite hervorgehoben.</p></li>
+<li><p>Klicken Sie <strong>Storage</strong>, <strong>CPU</strong> oder <strong>Memory Runway</strong> um die entsprechenden Diagramme bzgl. der Ressourcen anzuzeigen.</p></li>
+<li><p>Klicken Sie auf <strong>Optimize Resources</strong> um eine Liste an empfohlenden Verwaltungs-Aufgaben für eine Ressourcen-Reallokation anzusehen, etwa <em>Optimierung von Überprovisionierten VMs</em>, <em>Löschen von inaktiven VMs</em> oder <em>Hinzufügen von weiteren Ressourcen zu limitierten VMs</em>.</p>
+<blockquote>
+<div><div class="figure align-default">
+<img alt="../_images/lab7-6.png" src="../_images/lab7-6.png" />
+</div>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p>Schließen Sie die <strong>Capacity Runway</strong> Ansicht nun wieder.</p></li>
+</ol>
+</div>
+<div class="section" id="what-if-planning">
+<h2>What If Planning<a class="headerlink" href="#what-if-planning" title="Permalink to this headline">¶</a></h2>
+<p>Wie planen Sie typischerweise welchen Workload Sie in Ihrer bestehenden Umgebung noch ohne Probleme betreiben können und wie beantworten Sie die Frage, wann Sie durch solche zusätzlichen Workloads in betriebliche Engpässe hineinlaufen? Um diese komplizierten Planungsaufgaben einfacher zu gestalten, bietet Prism Central Ihnen eine sog. <strong>What If Planning</strong> Funktion an, die Ihnen dabei hilft theoretische Planung von zusätzlichem Workload auf Ihrer bestehenden Umgebung durchzuführen. Das System simuliert hierbei theoretische Workloads und verbindet sie dann mit den Belastungen durch die real existierenden Workloads in Ihrer Umgebung. Anschließend werden Ihnen dann diese synthetisch gewonnenen Ergebnisse zur Ihre Planungen zur Verfügung gestellt.</p>
+<ol class="arabic simple">
+<li><p>Klicken Sie <strong>Prism Central Menu &gt; Operations &gt; Planning &gt; Scenarios</strong> dann weiter auf <strong>New Scenario</strong>.</p></li>
+<li><p>Als nächstes füllen Sie die folgenden Felder aus:</p>
+<ul class="simple">
+<li><p><strong>Cluster</strong> : Wählen Sie Ihren Cluster aus.</p></li>
+<li><p><strong>Target</strong> : 6 months</p></li>
+</ul>
+</li>
+<li><p>Jetzt klicken Sie auf <strong>Add/Adjust</strong> und fügen <strong>150 neue Citrix XenDesktop-Benutzer</strong> hinzu und klicken anschließend auf <strong>Save</strong>. Füllen Sie nun die folgenden Felder folgendermaßen aus:</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Workload</strong> : VDI</p></li>
+<li><p><strong>Vendor</strong> : XenDesktop</p></li>
+<li><p><strong>User Type</strong> : Power User</p></li>
+<li><p><strong>Provision Type</strong> : Machine Creation Services</p></li>
+<li><p><strong>Number of Users</strong> : 150</p></li>
+<li><p><strong>On</strong> : Datum im mm/dd/yyyy-Format eintragen</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic" start="5">
+<li><p>Speichern Sie dieses <strong>Scenario</strong> und schauen sich die <strong>Runway Veränderungen</strong> für <em>CPU</em>, <em>Memory</em> und <em>Storage</em> an.</p>
+<div class="figure align-default">
+<img alt="../_images/lab7-7.png" src="../_images/lab7-7.png" />
+</div>
+</li>
+</ol>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Wiederholen Sie nun diesen Prozess (Workload hinzufügen) oder passen die VDI-Workloads so lange an, bis Sie insgesamt unter 6 Monate Runway kommen.</p>
+</div>
+</div></blockquote>
+<ol class="arabic" start="6">
+<li><p>Schauen Sie sich auch einmal die aktuelle Hardware an. Sie finden diese Inforamtion unter <strong>Resources</strong>.</p></li>
+<li><p>Klicken Sie nun auf <strong>Recommend</strong> um zu sehen welche NX-Hardware-Konfiguration dem bestehenden Cluster hinzugefügt werden muss, um die <strong>Runway</strong> entsprechend diesen Lastanforderungen zu verlängern.</p>
+<div class="figure align-default">
+<img alt="../_images/lab7-8.png" src="../_images/lab7-8.png" />
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Experimentieren Sie nun ein wenig mit weiteren Workloads und entwickeln ein Gefühl dafür, wie sich Änderungen im Hinblick auf Workload-Veränderungen auf die <strong>Runway</strong> und die <strong>Resource Recommendation</strong> auswirken. Fügen Sie beispielsweise in 3 Monaten weiter 150 VDI Nutzer hinzu, etc..</p>
+</div>
+</li>
+<li><p>Generieren Sie sich nun einen <strong>PDF Report</strong> um detailierte Kapazitäts-Planungs-Informationen zu erhalten die Sie als Grundlage für weitere Workload-Planungen verwenden können.</p>
+<div class="figure align-default">
+<img alt="../_images/lab7-9.png" src="../_images/lab7-9.png" />
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="zusammenfassung">
+<h2>Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permalink to this headline">¶</a></h2>
+<p>Die <strong>Prism Central Reporting-Funktionalität</strong> bietet Ihnen die Möglichkeit diverse Auswertungen, die aktuelle und historische Daten umfassen, nach Ihren zeitlichen Vorgaben bequem und regelmäßig per eMail zu verteilen. Die <strong>Capacity Runway</strong> Ansicht im Planungs-Dashboard zeigt Ihnen aggregierte und kombinierte <strong>Resource Runway</strong> Information für alle Ihre registrierten Cluster. Die <strong>Scenario View</strong> Ansicht innerhalb des <strong>Planning Dashboards</strong> eröffnet Ihnen die Möglichkeit <strong>What If Szenarien</strong> für zukünftige Workloads (nach Ihren Vorgaben) zu evaluieren und so den anstehenden Ressourcenbedarf vorrauszuplanen.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Es gibt noch viele weitere interessante Funktionen, die Nutanix mit Prism Central möglich macht. So kommt z.B. auch das Machine Learning in Prism Central zum Einsatz (<strong>Nutanix X-FIT</strong>), mit dem <strong>Anomalie-Erkennung</strong> möglich ist. Die <strong>Automatisierung von Routine Tasks</strong> mit <strong>Nutanix X-Play</strong> ist ebenfalls eine Funktion, die in Prism Central integriert wurde um an dieser Stelle nur einige wenige dieser herausragenden Funktionen zu nennen.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Einige der hier vorgestellten Funktionen benötigen eine Prism Central PRO Lizenz.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../Lab6/lab6.html" class="btn btn-neutral float-left" title="Lab 6: Data Protection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nutanix Germany GmbH | 
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

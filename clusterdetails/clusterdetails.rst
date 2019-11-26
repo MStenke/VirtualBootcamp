@@ -22,7 +22,7 @@ Cluster Hardware Details
    * - **CPU-Cores**
      - 24 Core je Node | 80 Cores im Cluster
    * - **CPU-Taktrate**
-     - 52,8 GHz je Node  | 211,2 GHz im Cluster
+     - 44 GHz je Node  | 176 GHz im Cluster
    * - **Arbeitsspeicher**
      - 256 GB je Node  | 1.024 GB im Cluster
    * - **SSD-Kapazität**

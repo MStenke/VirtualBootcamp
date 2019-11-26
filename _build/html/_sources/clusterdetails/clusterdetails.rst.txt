@@ -7,7 +7,7 @@ Bootcamp Cluster Details
 Cluster Hardware Details
 ++++++++++++++++++++++++
 
-**Hardware Typ: 4 Nodes / Server in 2 Höheneinheiten**
+**Typisches Modell für PoC's mit 4 Nodes in 2 Höheneinheiten:**
 
 .. figure:: images/cluster3060g5a.png
 

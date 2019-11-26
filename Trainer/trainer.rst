@@ -18,4 +18,4 @@ Nutzen Sie die Chance und stellen Ihre Fragen frei heraus!
    * - .. figure:: images/MStenke.png
    * - **Senior Systems Engineer**
    * - Leonberg, Baden-Wuerttemberg
-   * - Seit September 2018 bei Nutanixx
+   * - Seit September 2018 bei Nutanix

@@ -115,10 +115,10 @@ Die folgenden Disk-Images & ISOs wurden bereits im Vorfeld auf den Cluster hochg
      - Eine Windows 10 ISO.
    * - **Windows2012R2.iso**
      - ISO
-     - Eine Windows2016 ISO.
+     - Eine Windows2012 ISO.
    * - **Windows2012R2.qcow2**
      - DISK
-     - Ein Windows2016 Disk Image.
+     - Ein Windows2012 Disk Image.
    * - **Windows2016.iso**
      - ISO
      - Ein Windows2016 ISO

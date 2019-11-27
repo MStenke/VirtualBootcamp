@@ -21,7 +21,7 @@ Pulse Secure VPN Client (empfohlen)
 
 
 1.	Falls der Client bereits installiert ist bitte zu  Schritt 5 springen.
-2.	Um den Client herunter zu laden bitte an folgender Website unter Verwendung der bereitgestellten Zugangsdaten anmelden: https://xld-uswest1.nutanix.com
+2.	Um den Client herunter zu laden bitte an folgender Website unter Verwendung der bereitgestellten Zugangsdaten anmelden: https://xlv-uswest1.nutanix.com
 
     .. figure:: images/pulsewebsite.png
 

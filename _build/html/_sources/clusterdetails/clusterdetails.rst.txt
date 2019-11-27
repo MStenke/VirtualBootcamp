@@ -26,21 +26,21 @@ Infrastruktur IPs
      - Hypervisors
      - IPMI
    * - **Position A**
-     - 10.42.193.29
-     - 10.42.193.25
-     - 10.42.193.33
+     - 10.38.193.29
+     - 10.38.193.25
+     - 10.38.193.33
    * - **Position B**
-     - 10.42.193.30
-     - 10.42.193.26
-     - 10.42.193.34
+     - 10.38.193.30
+     - 10.38.193.26
+     - 10.38.193.34
    * - **Position C**
-     - 10.42.193.31
-     - 10.42.193.27
-     - 10.42.193.35
+     - 10.38.193.31
+     - 10.38.193.27
+     - 10.38.193.35
    * - **Position D**
-     - 10.42.193.32
-     - 10.42.193.28
-     - 10.42.193.36
+     - 10.38.193.32
+     - 10.38.193.28
+     - 10.38.193.36
 
 .. list-table::
    :widths: 20 10
@@ -49,9 +49,9 @@ Infrastruktur IPs
    * - Services
      - IP-Adressen
    * - **Virtuelle IP Adresse Cluster**
-     - 10.42.193.37
+     - 10.38.193.37
    * - **iSCSI Data Services IP**
-     - 10.42.193.38
+     - 10.38.193.38
 
 
 Virtuelle Maschinen
@@ -204,24 +204,24 @@ Die folgenden virtuellen Netzwerke wurden wie folgt vorkonfiguriert:
      - 0
      - 1933
    * - **Netzwerk IP Adresse**
-     - 10.42.193.0
-     - 10.42.193.128
+     - 10.38.193.0
+     - 10.38.193.128
    * - **Netzmaske**
      - 255.255.255.128 (/25)
      - 255.255.255.128 (/25)
    * - **Default Gateway**
-     - 10.42.193.1
-     - 10.42.193.129
+     - 10.38.193.1
+     - 10.38.193.129
    * - **IP Address Management (IPAM)**
      - Aktiviert
      - Aktiviert
    * - **DHCP Pool**
-     - 10.42.193.50  - 125
-     - 10.42.193.132 - 253
+     - 10.38.193.50  - 125
+     - 10.38.193.132 - 253
    * - **Domain**
      - NTNXLAB.local
      - NTNXLAB.local
    * - **DNS**
-     - 10.42.193.40 (DC VM)
-     - 10.42.193.40 (DC VM)
+     - 10.38.193.40 (DC VM)
+     - 10.38.193.40 (DC VM)
    

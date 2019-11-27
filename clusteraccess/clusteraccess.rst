@@ -29,7 +29,7 @@ Pulse Secure VPN Client (empfohlen)
 
     .. figure:: images/pulsedownload.png
 
-4.	Abmelden an der Web UI.
+4.	Abmelden an der Web UI .
 
 5.	Lokal installierten Client öffnen und eine neue Verbindung mit folgenden Parametern hinzufügen:
 

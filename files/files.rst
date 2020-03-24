@@ -1,95 +1,95 @@
 .. title:: Files
 
 --------------------------------
-Consolidating Storage with Files
+Storage Konsolidierung mit Nutanix Files
 --------------------------------
 
-*The estimated time to complete this lab is 45 minutes.*
+*Die geschätzte Zeit für die Durchführung dieses Labs beträgt 45 Minuten.*
 
-Traditionally, file storage has been yet another silo within IT, introducing unnecessary complexity and suffering from the same issues of scale and lack of continuous innovation seen in SAN storage. Nutanix believes there is no room for silos in the Enterprise Cloud. By approaching file storage as an app, running in software on top of a proven HCI core, Nutanix Files  delivers high performance, scalability, and rapid innovation through One Click management.
+Traditionell war der Dateispeicher ein weiteres Silo innerhalb der IT, das unnötige Komplexität mit sich brachte und unter den gleichen Skalierungsproblemen und dem Mangel an kontinuierlicher Innovation litt, die beim SAN-Speicher auftreten. Nutanix glaubt, dass in der Enterprise Cloud kein Platz für Silos ist. Durch die Annäherung an den Dateispeicher als App, die in Software auf einem bewährten HCI-Kern ausgeführt wird, bietet Nutanix Files durch One-Click-Management hohe Leistung, Skalierbarkeit und schnelle Innovation.
 
-**In this lab you will work with Files to manage SMB shares and NFS exports and explore the new functionality for Files deployments with File Analytics.**
+**In dieser Übung arbeiten Sie mit Nutanix Files, um SMB-Freigaben und NFS-Exporte zu verwalten und die neuen Funktionen für die Bereitstellung von Dateien mit File Analytics zu erkunden.**
 
-For the purpose of time, and sharing infrastructure resources, a Files cluster has already been provisioned on your cluster. The **BootcampFS** Files is a single node instance, typical **Files** deployments would start with 3 File Server VMs, with the ability to scale up and scale out as required for performance.
+Aus Zeitgründen und zur gemeinsamen Nutzung von Infrastrukturressourcen wurde in Ihrem Cluster bereits ein Dateicluster bereitgestellt. Der **BootcampFS** - File Server ist eine Einzelknoteninstanz. Typische **Nutanix Files** Installationen beginnen mit 3 File-Server-VMs und können je nach benötigter Leistung per Scale-up und Scale-out erweitert werden.
 
-**BootcampFS** has been configured to use the **Primary** network to communicate with the backend storage, iSCSI connections from the **CVM** to **Volume Groups**, and the **Secondary** network for communication with clients, Active Directory, anti-virus services, etc.
+**BootcampFS** wurde so konfiguriert, dass es das **primäre** Netzwerk für die Kommunikation mit dem Back-End-Speicher, iSCSI-Verbindungen vom **CVM** zu Volume-Groups und das **sekundäre** Netzwerk für die Kommunikation mit Clients, Active Directory, Antiviren-Diensten usw. verwendet.
 
 .. figure:: images/1.png
 
 .. note::
+   In Produktionsumgebungen ist es normalerweise wünschenswert, Dateien mit dedizierten virtuellen Netzwerken für den Client- und Speicherverkehr bereitzustellen. Bei Verwendung von zwei Netzwerken verbietet Files im Storage-Netzwerk standardmäßig den Client Traffic, was bedeutet, dass VMs, die dem primären Netzwerk zugewiesen sind, nicht auf Freigaben zugreifen können.
 
-  It is typically desirable in production environments to deploy Files with dedicated virtual networks for client and storage traffic. When using two networks, Files will, by design, disallow client traffic the storage network, meaning VMs assigned to the primary network will be unable to access shares.
+Da Files Nutanix Volume Groups für die Datenspeicherung nutzt, können dieselben zugrunde liegenden Speichervorteile wie Komprimierung, Erasure Coding, Snapshots und Replikation genutzt werden.
 
-As Files leverages Nutanix Volume Groups for data storage, it can take advantage of the same underlying storage benefits such as compression, erasure coding, snapshots, and replication.
-
-In **Prism Element > File Server > File Server**, select **BootcampFS** and click **Protect**.
+In **Prism Element > File Server > File Server**, wählen Sie **BootcampFS** und Klicken Sie auf **Protect**.
 
    .. figure:: images/10.png
 
-Observe the default Self Service Restore schedules, this feature controls the snapshot schedule for Windows' Previous Versions functionality. Supporting Windows Previous Versions allows end users to roll back changes to files without engaging storage or backup administrators. Note these local snapshots do not protect the file server cluster from local failures and that replication of the entire file server cluster can be performed to remote Nutanix clusters.
+Beachten Sie die Standardzeitpläne für die Self-Service-Wiederherstellung. Diese Funktion steuert den Snapshot-Zeitplan für die frühere Versionen Funktionalität von Windows. Durch die Unterstützung früherer Windows-Versionen können Endbenutzer Änderungen an Dateien rückgängig machen, ohne Speicher- oder Sicherungsadministratoren zu involvieren. Beachten Sie, dass diese lokalen Snapshots den Dateiservercluster nicht vor lokalen Fehlern schützen und dass die Replikation des gesamten Dateiserverclusters auf entfernte Nutanix-Cluster durchgeführt werden kann.
 
-Managing SMB Shares
-+++++++++++++++++++
 
-In this exercise you will create and test a SMB share, used to support the unstructured file data needs of a cross-departmental team for the Fiesta application.
+Verwalten von SMB-Freigaben
++++++++++++++++++++++++++++
 
-Creating the Share
+In dieser Übung erstellen und testen Sie eine SMB-Freigabe, die zur Unterstützung der unstrukturierten Dateidatenanforderungen eines abteilungsübergreifenden Teams für die Fiesta-Anwendung verwendet wird.
+
+
+Freigabe erstellen
 ..................
 
-#. In **Prism Element > File Server**, click **+ Share/Export**.
+#. In **Prism Element > File Server**, klicken Sie auf **+ Share/Export**.
 
-#. Fill out the following fields:
+#. Füllen Sie die folgenden Felder aus:
 
-   - **Name** - *Initials*\ **-FiestaShare**
-   - **Description (Optional)** - Fiesta app team share, used by PM, ENG, and MKT
+   - **Name** - *Initialen*\ **-FiestaShare**
+   - **Description (Optional)** - Fiesta App Team-Freigabe, die von ProduktManagement, Entwicklung und Marketing verwendet wird.
    - **File Server** - **BootcampFS**
-   - **Share Path (Optional)** - Leave blank. This field allows you to specify an existing path in which to create the nested share.
-   - **Max Size (Optional)** - 200GiB
+   - **Share Path (Optional)** - Leer lassen. In diesem Feld können Sie einen vorhandenen Pfad angeben, in dem die verschachtelte Freigabe (nested share) erstellt werden soll.
+   - **Max Size (Optional)** - 200 GiB
    - **Select Protocol** - SMB
 
    .. figure:: images/2.png
 
-   Because this is a single node AOS cluster and therefore a single file server VM, all shares will be **Standard** shares. A Standard share means that all top level directories and files within the share, as well as connections to the share, are served from a single file server VM.
+   Da dies ein AOS-Cluster mit einem einzelnen Knoten und daher eine einzelne Dateiserver-VM ist, sind alle Freigaben **Standard** - Freigaben . Eine Standardfreigabe (Standard Share) bedeutet, dass alle Verzeichnisse und Dateien der obersten Ebene innerhalb der Freigabe sowie die Verbindungen zur Freigabe von einer einzelnen Dateiserver-VM bereitgestellt werden.
 
-   If this were a three node Files cluster or larger you’d have an option to create a **Distributed** share.  Distributed shares are appropriate for home directories, user profiles, and application folders. This type of share shards top level directories across all Files VMs and load balances connections across all Files VMs within the Files cluster.
+   Wenn dies ein Dateicluster mit drei Knoten oder größer wäre, hätten Sie die Möglichkeit, eine **verteilte** Freigabe (Distributed Share) zu erstellen. Verteilte Freigaben eignen sich für Basisverzeichnisse, Benutzerprofile und Anwendungsordner. Diese Art der Freigabe speichert Verzeichnisse der obersten Ebene auf allen Datei-VMs und gleicht die Verbindungen auf allen Datei-VMs im Dateicluster aus.
 
-#. Click **Next**.
+#. Klicken Sie auf **Next**.
 
-#. Select **Enable Access Based Enumeration** and **Self Service Restore**. Select **Blocked File Types** and enter a comma separated list of extensions like .flv,.mov.
+#. Wählen Sie **Enable Access Based Enumeration** und **Self Service Restore**. Wählen Sie **Blocked File Types** und geben Sie eine durch Kommas getrennte Liste von Erweiterungen wie .flv, .mov ein.
 
    .. figure:: images/3.png
 
    .. note::
 
-      **Access Based Enumeration (ABE)** ensures that only files and folders which a given user has read access are visible to that user. This is commonly enabled for Windows file shares.
+      **Access Based Enumeration (ABE)** stellt sicher, dass nur Dateien und Ordner, auf die ein bestimmter Benutzer Lesezugriff hat, für diesen Benutzer sichtbar sind. Dies ist normalerweise für Windows-Dateifreigaben aktiviert.
 
-      **Self Service Restore** allows users to leverage Windows Previous Version to easily restore individual files to previous revisions based on Nutanix snapshots.
+      Mit der **Self Service Restore** können Benutzer die vorherige Windows-Version nutzen, um einzelne Dateien auf der Grundlage von Nutanix-Snapshots problemlos auf frühere Revisionen zurückzusetzen.
 
-      **Blocked File Types** allow Files administrators to restrict certain types of files (such as large, personal media files) from being written to corporate shares. This can be configured on a per Server or per Share basis, with per Share settings overriding Server wide settings.
+      Mit **Blocked File Types** können File Server Administratoren verhindern, dass bestimmte Dateitypen (z.B. große, persönliche Mediendateien) auf Unternehmensfreigaben geschrieben werden. Dies kann pro Server oder pro Freigabe konfiguriert werden, wobei die Einstellungen pro Freigabe die serverweiten Einstellungen überschreiben.
 
-#. Click **Next**.
+#. Klicken Sie auf **Next**.
 
-#. Review the **Summary** and click **Create**.
+#. Überprüfen Sie die **Summary** und klicken Sie auf **Create**.
 
    .. figure:: images/4.png
+   Es ist üblich, dass Freigaben, die von vielen Menschen verwendet werden, Quoten nutzen, um einen fairen Umgang mit Ressourcen sicherzustellen. Nutanix Files bietet die Möglichkeit, entweder weiche oder harte Quoten pro Freigabe für einzelne Benutzer in Active Directory oder für bestimmte Active Directory-Sicherheitsgruppen festzulegen.
+   
+#. In **Prism Element > File Server > Share/Export**, Ihren Anteil aus und klicken Sie **+ Add Quota Policy**.
 
-   It is common for shares utilized by many people to leverage quotas to ensure fair use of resources. Files offers the ability to set either soft or hard quotas on a per share basis for either individual users within Active Directory, or specific Active Directory Security Groups.
+#. Füllen Sie die folgenden Felder aus und klicken Sie auf **Save**:
 
-#. In **Prism Element > File Server > Share/Export**, select your share and click **+ Add Quota Policy**.
-
-#. Fill out the following fields and click **Save**:
-
-   - Select **Group**
+   - Wählen Sie **Group**
    - **User or Group** - SSP Developers
    - **Quota** - 10 GiB
    - **Enforcement Type** - Hard Limit
 
    .. figure:: images/9.png
 
-#. Click **Save**.
+#. Klicken Sie auf **Save**.
 
-Testing the Share
-.................
+Testen der Freigabe
+...................
 
 #. Connect to your *Initials*\ **-WinTools** VM via VM console as a **non-Administrator NTNXLAB** domain account:
 
@@ -434,47 +434,48 @@ You will first provision a CentOS VM to use as a client for your Files export.
 
    Note that the utilization data is updated every 10 minutes.
 
-Multi-Protocol Shares
-+++++++++++++++++++++
+Multiprotokoll-Freigaben
+++++++++++++++++++++++++
 
-Files provides the ability to provision both SMB shares and NFS exports separately - but also now supports the ability to provide multi-protocol access to the same share. In the exercise below, you will configure your existing *Initials*\ **-FiestaShare** to allow NFS access, allowing developer users to re-direct application logs to this location.
+Nutanix Files bieten die Möglichkeit, sowohl SMB-Freigaben als auch NFS-Exporte separat bereitzustellen. Jetzt wird jedoch auch die Möglichkeit unterstützt, Multiprotokollzugriff auf dieselbe Freigabe bereitzustellen. In der folgenden Übung konfigurieren Sie Ihre vorhandenen *Initialien*\ **-FiestaShare** so , dass der NFS-Zugriff ermöglicht wird, sodass Entwickler Anwendungsprotokolle an diesen Speicherort umleiten können.
 
-Configure User Mappings
-.......................
+Benutzerzuordnungen konfigurieren
+.................................
 
-A Nutanix Files share has the concept of a native and non-native protocol.  All permissions are applied using the native protocol. Any access requests using the non-native protocol requires a user or group mapping to the permission applied from the native side. There are several ways to apply user and group mappings including rule based, explicit and default mappings.  You will first configure a default mapping.
+Eine Nutanix Files-Freigabe hat das Konzept eines nativen und eines nicht nativen Protokolls. Alle Berechtigungen werden mit dem nativen Protokoll angewendet. Alle Zugriffsanforderungen, die das nicht native Protokoll verwenden, erfordern eine Benutzer- oder Gruppenzuordnung zu der von der nativen Seite angewendeten Berechtigung. Es gibt verschiedene Möglichkeiten, Benutzer- und Gruppenzuordnungen anzuwenden, einschließlich regelbasierter, expliziter und Standardzuordnungen. Sie konfigurieren zunächst eine Standardzuordnung.
 
-#. In **Prism Element > File Server**, select your file server and click **Protocol Management > User Mapping**.
 
-#. Click **Next** twice to advance to **Default Mapping**.
+#. In **Prism Element > File Server**, wählen Sie Ihre Datei - Server und klicken Sie auf **Protocol Management > User Mapping**.
 
-#. From the **Default Mapping** page choose both **Deny access to NFS export** and **Deny access to SMB share** as the defaults for when no mapping is found.
+#. Klicken Sie zweimal auf **Next**, um zu dem **Default Mapping**zu gelangen.
+
+#. Von der **Default Mapping** Seite wählen Sie **Deny access to NFS export** und **Deny access to SMB share** als die Standardwerte, sofern keine Zuordnung gefunden wird.
 
    .. figure:: images/31.png
 
-#. Click **Next > Save** to complete the default mapping.
+#. Klicken Sie auf **Next > Save**, um die Standardzuordnung abzuschließen.
 
-#. In **Prism Element > File Server**, select your *Initials*\ **-FiestaShare** and click **Update**.
+#. In **Prism Element > File Server**, wählen Sie Ihren *Initialien*\ **-FiestaShare** nd klicken Sie auf **Update**.
 
-#. Under **Basics**, select **Enable multiprotocol access for NFS** and click **Next**.
+#. Wählen Sie unter **Basics** die Option **Enable multiprotocol access for NFS** aus und klicken Sie auf **Next**.
 
    .. figure:: images/32.png
 
-#. Under **Settings > Multiprotocol Access** select **Simultaneous access to the same files from both protocols**.
+#. Wählen Sie unter **Settings > Multiprotocol Access** die Option **Simultaneous access to the same files from both protocols**.
 
    .. figure:: images/33.png
 
-#. Click **Next > Save** to complete updating the share settings.
+#. Klicken Sie auf **Next > Save**, um die Aktualisierung der Freigabeeinstellungen abzuschließen.
 
-Testing the Export
-.......................
+Testen des Exports
+..................
 
-#. To test the NFS export, connect via SSH to your *Initials*\ **-LinuxToolsVM** VM:
+#. Um den NFS-Export zu testen, stellen Sie über SSH eine Verbindung zu Ihrer *Initialien*\ **-LinuxToolsVM** VM her:
 
    - **User Name** - root
    - **Password** - nutanix/4u
 
-#. Execute the following commands:
+#. Führen Sie die folgenden Befehle aus:
 
      .. code-block:: bash
 
@@ -485,11 +486,11 @@ Testing the Export
        dir: cannot open directory /filesmulti: Permission denied
        [root@CentOS ~]#
 
-   .. note:: The mount operation is case sensitive.
+   .. note:: Bei der mount Operation wird zwischen Groß- und Kleinschreibung unterschieden.
 
-Because the default mapping is to deny access the Permission denied error is expected. You will now add an explicit mapping to allow access to the non-native NFS protocol user. We will need to get the user ID (UID) to create the explicit mapping.
+Da die Standardzuordnung darin besteht, den Zugriff zu verweigern, wird der Fehler "Permission denied" (Berechtigung verweigert) erwartet. Sie fügen jetzt eine explizite Zuordnung hinzu, um den Zugriff auf den nicht nativen NFS-Protokollbenutzer zu ermöglichen. Wir benötigen die Benutzer-ID (UID), um die explizite Zuordnung zu erstellen.
 
-#. Execute the following command and take note of the UID:
+#. Führen Sie den folgenden Befehl aus und notieren Sie sich die UID:
 
      .. code-block:: bash
 
@@ -497,25 +498,25 @@ Because the default mapping is to deny access the Permission denied error is exp
        uid=0(root) gid=0(root) groups=0(root)
        [root@CentOS ~]#
 
-#. In **Prism Element > File Server**, select your file server and click **Protocol Management > User Mapping**.
+#. In **Prism Element > File Server**, wählen Sie Ihre Datei - Server und klicken Sie auf **Protocol Management > User Mapping**.
 
-#. Click **Next** to advance to **Explicit Mapping**.
+#. Klicken Sie auf **Next** um zur **Explicit Mapping** zu gelangen.
 
-#. Under **One-to-onemapping list**, click **Add manually**.
+#. Klicken Sie unter **One-to-onemapping list**, auf **Add manually**.
 
-#. Fill out the following fields:
+#. Füllen Sie die folgenden Felder aus:
 
    - **SMB Name** - NTNXLAB\\devuser01
-   - **NFS ID** - UID from previous step (0 if root)
+   - **NFS ID** - UID aus dem vorherigen Schritt (0 wenn root)
    - **User/Group** - User
 
    .. figure:: images/34.png
 
-#. Under **Actions**, click **Save**.
+#. Klicken Sie unter **Actions** auf **Save**.
 
-#. Click **Next > Next > Save** to complete updating your mappings.
+#. Klicken Sie auf **Next > Next > Save** um die Aktualisierung Ihrer Zuordnungen abzuschließen.
 
-#. Return to your *Initials*\ **-LinuxToolsVM** SSH session and try to access the share again:
+#. Kehren Sie zu Ihrer SSH-Sitzung *Initialien*\ **-LinuxToolsVM** zurück und versuchen Sie erneut, auf die Freigabe zuzugreifen:
 
      .. code-block:: bash
 
@@ -523,14 +524,14 @@ Because the default mapping is to deny access the Permission denied error is exp
        Documents\ -\ Copy  Graphics\ -\ Copy  Pictures\ -\ Copy  Presentations\ -\ Copy  Recordings\ -\ Copy  Technical\ PDFs\ -\ Copy  XYZ-MyFolder
        [root@CentOS ~]#
 
-#. From your SSH session, create a text file and then validate you can access the file from your Windows client.
+#. Erstellen Sie in Ihrer SSH-Sitzung eine Textdatei und überprüfen Sie anschließend, ob Sie von Ihrem Windows-Client aus auf die Datei zugreifen können.
 
-Takeaways
-+++++++++
+Zusammenfassung
++++++++++++++++
 
-What are the key things you should know about **Nutanix Files**?
+Was sind die wichtigsten Dinge, die Sie über **Nutanix Files** wissen sollten ?
 
-- Files can be rapidly deployed on top of existing Nutanix clusters, providing SMB and NFS storage for user shares, home directories, departmental shares, applications, and any other general purpose file storage needs.
-- Files is not a point solution. VM, File, Block, and Object storage can all be delivered by the same platform using the same management tools, reducing complexity and management silos.
-- Files can scale up and scale out with One Click performance optimization.
-- File Analytics helps you better understand how data is utilized by your organizations to help you meet your data auditing, data access minimization and compliance requirements.
+- Files kann schnell auf vorhandenen Nutanix-Clustern bereitgestellt werden und bietet SMB- und NFS-Speicher für Benutzerfreigaben, Basisverzeichnisse, Abteilungsfreigaben, Anwendungen und andere allgemeine Dateispeicheranforderungen.
+- Files ist keine punktuelle Lösung. VM-, Datei-, Block- und Objektspeicher können alle von derselben Plattform mit denselben Verwaltungstools bereitgestellt werden, wodurch Komplexität und Verwaltungssilos reduziert werden.
+- Mit der One-Click-Leistungsoptimierung kann Nutanix Files per Scale-up udn Scale-out automatisch angepasst werden werden.
+- Mithilfe von File Analytics können Sie besser verstehen, wie Daten von Ihren Organisationen verwendet werden, um Ihre Datenprüfungs-, Datenzugriffsminimierungs- und Compliance-Anforderungen zu erfüllen.

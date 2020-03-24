@@ -1,4 +1,4 @@
-.. title:: Nutanix Technology Bootcamp Stuttgart
+.. title:: Nutanix Virtual Technology Bootcamp
 
 .. toctree::
    :maxdepth: 2
@@ -33,9 +33,9 @@
 
 .. _welcome:
 
------------------------------------
-Herzlich willkommen auf dem Nutanix
------------------------------------
+-------------------------------------------
+Herzlich willkommen auf dem Nutanix Virtual
+-------------------------------------------
 
 .. figure:: images/Intro.png
 
@@ -43,11 +43,11 @@ Dieses Nutanix Technology BootCamp Workbook führt Sie Schritt für Schritt durc
 
 Der Bootcamp Workshop besteht primär aus zwei Hauptbestandteilen:
 
-Teil 1:
+Teil 1: Theorie
   Genereller Überblick über das Nutanix Portfolio sowie einen theoretischen Einblick in die Nutanix Architektur.
 
-Teil 2:
-  Praxisteil: Hier lernen Sie anhand einzelner Labs Schritt für Schritt die zuvor theoretisch vorgestellte Nutanix Architektur kennen.
+Teil 2: Praxis
+  Hier lernen Sie anhand einzelner Labs Schritt für Schritt die zuvor theoretisch vorgestellte Nutanix Architektur kennen. Zusätzlich stehen Ihnen weiterführende optionale Labs zur Verfügung.
 
 **Haben wir Ihr Interesse geweckt? Dann lassen Sie uns beginnen!**
 

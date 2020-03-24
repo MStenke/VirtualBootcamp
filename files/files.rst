@@ -175,57 +175,54 @@ Testen der Freigabe
 
 File Analytics
 ++++++++++++++
+In dieser Übung lernen Sie die neuen, integrierten Funktionen für die Dateianalyse kennen, die mit Nutanix-Files Analytics zur Verfügung stehen. Dazu gehören das Scannen vorhandener Freigaben, das Erstellen von Anomaliewarnungen und das Überprüfen von Überwachungsdetails. File Analytics wird in wenigen Minuten als eigenständige VM über einen automatisierten One-Click-Vorgang in Prism Element bereitgestellt. Diese VM wurde bereits in Ihrer Umgebung bereitgestellt und aktiviert.
 
-In this exercise you will explore the new, integrated File Analytics capabilities available in Nutanix Files, including scanning existing shares, creating anomaly alerts, and reviewing audit details. File Analytics is deployed in minutes as a standalone VM through an automated, One Click operation in Prism Element. This VM has already been deployed and enabled in your environment.
-
-#. In **Prism Element > File Server > File Server**, select **BootcampFS** and click **File Analytics**.
+#. In **Prism Element > File Server > File Server**, wählen Sie **BootcampFS** und klicken Sie auf **File Analytics**.
 
    .. figure:: images/12.png
 
    .. note::
 
-      File Analytics should already be enabled, but if prompted you will need to provide your Files administrator account, as Analytics will need to be able to scan all shares.
+      File Analytics sollte bereits aktiviert sein. Wenn Sie jedoch dazu aufgefordert werden, müssen Sie Ihr Dateiverwaltungskonto angeben, damit Analytics alle Freigaben scannen kann.
 
       - **Username**: NTNXLAB\\administrator
       - **Password**: nutanix/4u
 
       .. figure:: images/old13.png
 
-#. As this is a shared environment, the dashboard will likely already be populated with data from shares created by other users. To scan your newly created share, click :fa:`gear` **> Scan File System**. Select your share and click **Scan**.
+#. Da es sich um eine gemeinsam genutzte Umgebung handelt, wird das Dashboard wahrscheinlich bereits mit Daten aus Freigaben gefüllt, die von anderen Benutzern erstellt wurden. Klicken Sie auf :fa:`gear` **> Scan File System**, um Ihre neu erstellte Freigabe zu scannen. Wählen Sie Ihre Freigabe aus und klicken Sie auf **Scan**.
 
    .. figure:: images/14.png
 
    .. note::
 
-      If your share is not shown, please give it some time to get populated...
+      Wenn Ihre Freigabe nicht angezeigt wird, geben Sie ihm bitte etwas Zeit, um dies zu aktualisieren.
 
-#. Close the **Scan File System** window and refresh your browser.
+#. Schließen Sie das Fenster **Scan File System** und aktualisieren Sie Ihren Browser.
 
-#. You should see the **Data Age**, **File Distribution by Size** and **File Distribution by Type** dashboard panels update.
+#. Sie sollten folgendes sehen **Data Age**, **File Distribution by Size** und **File Distribution by Type** sobald sich das Dashboard aktualisiert hat.
 
    .. figure:: images/15.png
 
-   Under....
+#. Erstellen Sie auf Ihrer *Initialien*\ **-WinTools** - VM einige Audit-Trail-Aktivitäten, indem Sie mehrere der Dateien unter **Sample Data** öffnen.
 
-#. From your *Initials*\ **-WinTools** VM, create some audit trail activity by opening several of the files under **Sample Data**.
+   .. note:: Möglicherweise müssen Sie einen kurzen Assistenten für OpenOffice ausführen, wenn Sie diese Anwendung zum Öffnen einer Datei verwenden.
 
-   .. note:: You may need to complete a short wizard for OpenOffice if using that application to open a file.
-
-#. Refresh the **Dashboard** page in your browser to see the **Top 5 Active Users**, **Top 5 Accessed Files** and **File Operations** panels update.
+#. Aktualisieren Sie die **Dashboard** - Seite in Ihrem Browser, um die Aktualisierung der Bedienfelder **Top 5 Active Users**, **Top 5 Accessed Files** und **File Operations** anzuzeigen.
 
    .. figure:: images/17.png
 
-#. To access the audit trail for your user account, click on your user under **Top 5 Active Users**.
+#. Um auf den **Audit Trail** für Ihr Benutzerkonto zuzugreifen, klicken Sie unter **Top 5 Active Users** auf Ihren Benutzer.
 
    .. figure:: images/17b.png
 
-#. Alternatively, you can select **Audit Trails** from the toolbar and search for your user or a given file.
+#. Alternativ können Sie in der Symbolleiste **Audit Trails** auswählen und nach Ihrem Benutzer oder einer bestimmten Datei suchen.
 
    .. figure:: images/18.png
 
    .. note::
 
-      You can use wildcards for your search, for example **.doc**
+      Sie können Platzhalter für Ihre Suche verwenden, z. B. **.doc**
 ..
    #. Next, we will create rules to detect anomalous behavior on the File Server. From the toolbar, click :fa:`gear` **> Define Anomaly Rules**.
 
@@ -312,64 +309,60 @@ In this exercise you will explore the new, integrated File Analytics capabilitie
 
       .. figure:: images/28.png
 
-File Analytics puts simple, yet powerful information in the hands of storage administrators, allowing them to understand and audit both utilization and access within a Nutanix Files environment.
+File Analytics gibt Speicheradministratoren einfache und dennoch leistungsstarke Informationen in die Hand, sodass sie sowohl die Nutzung als auch den Zugriff in einer Nutanix Files-Umgebung verstehen und prüfen können.
 
-Using NFS Exports
-+++++++++++++++++
+Verwenden von NFS-Exporten 
+++++++++++++++++++++++++++
 
-In this exercise you will create and test a NFSv4 export, used to support clustered applications, store application data such as logging, or storing other unstructured file data commonly accessed by Linux clients.
+In dieser Übung erstellen und testen Sie einen NFSv4-Export, der zur Unterstützung von Clusteranwendungen, zum Speichern von Anwendungsdaten wie der Protokollierung oder zum Speichern anderer unstrukturierter Dateidaten verwendet wird, auf die Linux-Clients häufig zugreifen.
 
-Enabling NFS Protocol
-.....................
+Aktivieren des NFS-Protokolls 
+.............................
 
 .. note::
 
-   Enabling NFS protocol only needs to be performed once per Files server, and may have already been completed in your environment. If NFS is already enabled, proceed to `Configure User Mappings`_.
+   Das Aktivieren des NFS-Protokolls muss nur einmal pro Dateiserver durchgeführt werden und wurde möglicherweise bereits in Ihrer Umgebung abgeschlossen. Wenn NFS bereits aktiviert ist, fahren Sie mit `Benutzerzuordnungen konfigurieren`_ fort.
 
-#. In **Prism Element > File Server**, select your file server and click **Protocol Management > Directory Services**.
+#. In **Prism Element > File Server**, wählen Sie Ihren File-Server und klicken Sie auf **Protocol Management > Directory Services**.
 
    .. figure:: images/29.png
 
-#. Select **Use NFS Protocol** with **Unmanaged** User Management and Authentication, and click **Update**.
+#. Wählen Sie **Use NFS Protocol** mit **Unmanaged** User Management und Authentication und klicken Sie auf **Update**.
 
    .. figure:: images/30.png
 
-Creating the Export
-...................
+Export erstellen
+................
 
-#. In **Prism > File Server**, click **+ Share/Export**.
+#. In **Prism > File Server**, klicken Sie auf **+ Share/Export**.
 
-#. Fill out the following fields:
+#. Füllen Sie die folgenden Felder aus:
 
    - **Name** - logs
-   - **Description (Optional)** - File share for system logs
+   - **Description (Optional)** - Dateifreigabe für Systemprotokolle
    - **File Server** - *Initials*\ **-Files**
    - **Share Path (Optional)** - Leave blank
    - **Max Size (Optional)** - Leave blank
    - **Select Protocol** - NFS
 
-   .. figure:: images/24.png
+#. Klicken Sie auf **Next**.
 
-#. Click **Next**.
+#. Füllen Sie die folgenden Felder aus:
 
-#. Fill out the following fields:
-
-   - Select **Enable Self Service Restore**
-      - These snapshots appear as a .snapshot directory for NFS clients.
+   - Wählen Sie **Enable Self Service Restore**
+      - Diese Snapshots werden als .snapshot-Verzeichnis für NFS-Clients angezeigt.
    - **Authentication** - System
    - **Default Access (For All Clients)** - No Access
    - Select **+ Add exceptions**
-   - **Clients with Read-Write Access** - *The first 3 octets of your cluster network*\ .* (e.g. 10.38.1.\*)
+   - **Clients with Read-Write Access** - *Die ersten 3 Oktette Ihres Clusternetzwerks*\ .* (z.B. 10.42.99.\*)
 
-   .. figure:: images/25.png
+   Standardmäßig ermöglicht ein NFS-Export Lese- / Schreibzugriff auf jeden Host, der den Export bereitstellt. Dies kann jedoch auf bestimmte IPs oder IP-Bereiche beschränkt werden.
 
-   By default an NFS export will allow read/write access to any host that mounts the export, but this can be restricted to specific IPs or IP ranges.
+#. Klicken Sie auf **Next**.
 
-#. Click **Next**.
+#. Überprüfen Sie die **Summary** und klicken Sie auf **Create**.
 
-#. Review the **Summary** and click **Create**.
-
-Testing the Export
+Testen des Exports
 ..................
 
 You will first provision a CentOS VM to use as a client for your Files export.

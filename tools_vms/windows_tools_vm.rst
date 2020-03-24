@@ -7,11 +7,7 @@ Windows Tools VM
 Übersicht
 +++++++++
 
-Stellen Sie diese VM auf Ihrem zugewiesenen Cluster bereit, wenn Sie im Rahmen von **Lab Setup** dazu aufgefordert werden.
-
-.. raw:: html
-
-  <strong><font color="red">Stellen Sie die VM nur einmal bereit, sie wird u.U. in mehreren Labs verwendet.</font></strong><br />
+Stellen Sie diese VM auf Ihrem zugewiesenen Cluster bereit, wenn Sie im Rahmen von **Lab Setup** dazu aufgefordert werden. **Stellen Sie die VM nur einmal bereit, sie wird u.U. in mehreren Labs verwendet.**
 
 Dieses Windows Server 2012 R2-Image ist mit einer Reihe von Tools vorinstalliert, darunter:
 

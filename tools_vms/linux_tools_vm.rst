@@ -7,11 +7,7 @@ Linux Tools VM
 Übersicht
 +++++++++
 
-Dieses CentOS VM-Image wird mit Paketen bereitgestellt, die zur Unterstützung mehrerer Lab-Übungen verwendet werden. Stellen Sie diese VM auf Ihrem zugewiesenen Cluster bereit, wenn Sie im Rahmen von **Lab Setup** dazu aufgefordert werden.
-
-.. raw:: html
-
-  <strong><font color="red">Stellen Sie die VM nur einmal bereit, sie wird u.U. in mehreren Labs verwendet.</font></strong><br />
+Dieses CentOS VM-Image wird mit Paketen bereitgestellt, die zur Unterstützung mehrerer Lab-Übungen verwendet werden. Stellen Sie diese VM auf Ihrem zugewiesenen Cluster bereit, wenn Sie im Rahmen von **Lab Setup** dazu aufgefordert werden. **Stellen Sie die VM nur einmal bereit, sie wird u.U. in mehreren Labs verwendet.**
 
 Bereitstellen von CentOS
 ++++++++++++++++++++++++
@@ -43,8 +39,8 @@ Klicken Sie auf **Save**, um die VM zu erstellen.
 
 Schalten Sie die VM ein.
 
-Installing Tools
-++++++++++++++++
+Tools Installation
+++++++++++++++++++
 
 Melden Sie sich über die SSH- oder Konsolensitzung mit den folgenden Anmeldeinformationen bei der VM an:
 

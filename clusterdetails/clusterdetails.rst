@@ -26,21 +26,21 @@ Infrastruktur IPs
      - Hypervisors
      - IPMI
    * - **Position A**
-     - 10.38.193.29
-     - 10.38.193.25
-     - 10.38.193.33
+     - 10.42.99.29
+     - 10.42.99.25
+     - 10.42.99.33
    * - **Position B**
-     - 10.38.193.30
-     - 10.38.193.26
-     - 10.38.193.34
+     - 10.42.99.30
+     - 10.42.99.26
+     - 10.42.99.34
    * - **Position C**
-     - 10.38.193.31
-     - 10.38.193.27
-     - 10.38.193.35
+     - 10.42.99.31
+     - 10.42.99.27
+     - 10.42.99.35
    * - **Position D**
-     - 10.38.193.32
-     - 10.38.193.28
-     - 10.38.193.36
+     - 10.42.99.32
+     - 10.42.99.28
+     - 10.42.99.36
 
 .. list-table::
    :widths: 20 10
@@ -49,15 +49,15 @@ Infrastruktur IPs
    * - Services
      - IP-Adressen
    * - **Virtuelle IP Adresse Cluster**
-     - 10.38.193.37
+     - 10.42.99.37
    * - **iSCSI Data Services IP**
-     - 10.38.193.38
+     - 10.42.99.38
 
 
 Virtuelle Maschinen
 ++++++++++++++++++++
 
-Die folgenden VMs wurden bereits auf dem Cluster ausgerollt:
+Die folgenden VMs wurden u.a. bereits auf dem Cluster ausgerollt:
 
 .. list-table::
    :widths: 25 25 50
@@ -67,11 +67,17 @@ Die folgenden VMs wurden bereits auf dem Cluster ausgerollt:
      - IP-Adresse
      - Beschreibung
    * - **Prism Central**
-     - 10.42.193.39
+     - 10.42.99.39
      - Nutanix Prism Central
-   * - **AutoDC2**
-     - 10.42.193.41
+   * - **AutoAD**
+     - 10.42.99.41
      - ntnxlab.local Domain Controller
+   * - **NTNX-BootcampFS-1**
+     - 10.42.99.53 / 10.42.99.174
+     - Nutanix File Server VM
+   * - **NTNX-FA-BootcampFileAnalytics**
+     - 10.42.99.132
+     - Nutanix File Analytics VM
 
 
 Images / VM Vorlagen & ISOs
@@ -86,46 +92,27 @@ Die folgenden Disk-Images & ISOs wurden bereits im Vorfeld auf den Cluster hochg
    * - Image-Name
      - Typ
      - Beschreibung
-   * - **CentOS7.iso**
-     - ISO
-     - Ein CentOS7 ISO
    * - **CentOS7.qcow2**
      - DISK
-     - Ein bereits vorgefertigtes CentOS 7 Disk Image
-   * - **hycu-3.5.0-6253.qcow2**
+     - Ein bereits vorgefertigtes CentOS 7 Disk Image.
+   * - **ERA-Server-build-1.2.1.qcow2**
      - DISK
-     - Ein bereits vorgefertigtes HYCU Disk Image
+     - Ein Nutanix ERA Disk Image.
    * - **Linux_ToolsVM.qcow2**
      - DISK
-     - Ein vorkonfiguriertes Linux Image  + Tools Disk Image
+     - Ein vorkonfiguriertes Linux Image  + Tools Disk Image.
    * - **MSSQL-2016-VM.qcow2**
      - DISK
      - Ein Windows Server 2016 Standard Image mit MS SQL 2016 vorinstalliert.
-   * - **Nutanix-VirtIO-1.1.3.iso**
+   * - **Nutanix-VirtIO-1.1.5.iso**
      - ISO
      - Ein ISO mit den Nutanix VM Treibern.
-   * - **ToolsVM.qcow2**
-     - DISK
-     - Ein vorkonfiguriertes Windows Server 2012 R2 + Tools (pgAdmin, CyberDuck, text editors, etc.) Disk Image
-   * - **Windows10-1709.qcow2**
-     - DISK
-     - Ein Windows 10 Disk Image.
-   * - **Windows10.iso**
-     - ISO
-     - Eine Windows 10 ISO.
-   * - **Windows2012R2.iso**
-     - ISO
-     - Eine Windows2012 ISO.
-   * - **Windows2012R2.qcow2**
-     - DISK
-     - Ein Windows2012 Disk Image.
-   * - **Windows2016.iso**
-     - ISO
-     - Ein Windows2016 ISO
    * - **Windows2016.qcow2**
      - DISK
-     - Ein Windows2016 Disk Image
-
+     - Ein Windows2016 Disk Image.
+   * - **WinToolsVM.qcow2**
+     - DISK
+     - Ein vorkonfiguriertes Windows Server 2012 R2 + Tools (pgAdmin, CyberDuck, Text Editoren, etc.) Disk Image.
 
 
 Zugangsdaten
@@ -154,7 +141,7 @@ Die folgende Tabelle führt die standardmäßig hinterlegten Zugangsdaten für d
     - ntnx4Stgt!
   * - **Prism Central VM**
     - nutanix
-    - ntnx4Stgt!
+    - nutanix/4u
   * - **NTNXLAB Domain**
     - NTNXLAB\\Administrator
     - nutanix/4u
@@ -172,20 +159,26 @@ Darüber hinaus besitzt der Cluster eine dedizierte Domain-Controller-VM, welche
   * - Gruppe
     - Benutzername(n)
     - Passwort
-  * - **Administrators**
+  * - **Administrators / Domain Admins**
     - Administrator
     - nutanix/4u
+  * - **Bootcamp Users**
+    - User01-User25
+    - nutanix/4u
   * - **SSP Admins**
-    - adminuser01-adminuser25
+    - Adminuser01-Adminuser25
+    - nutanix/4u
+  * - **SSP Operators**
+    - Operator01-Operator25
     - nutanix/4u
   * - **SSP Developers**
-    - devuser01-devuser25
+    - Devuser01-Devuser25
     - nutanix/4u
-  * - **SSP Power Users**
-    - poweruser01-poweruser25
+  * - **SSP Consumers**
+    - Consumer01-Consumer25
     - nutanix/4u
-  * - **SSP Basic Users**
-    - basicuser01-basicuser25
+  * - **SSP Custom**
+    - Custom01-Custom25
     - nutanix/4u
 
 Netzwerk
@@ -202,26 +195,25 @@ Die folgenden virtuellen Netzwerke wurden wie folgt vorkonfiguriert:
      - **Sekundäres** Netzwerk
    * - **VLAN**
      - 0
-     - 1933
+     - 991
    * - **Netzwerk IP Adresse**
-     - 10.38.193.0
-     - 10.38.193.128
+     - 10.42.99.0
+     - 10.42.99.128
    * - **Netzmaske**
      - 255.255.255.128 (/25)
      - 255.255.255.128 (/25)
    * - **Default Gateway**
-     - 10.38.193.1
-     - 10.38.193.129
+     - 10.42.99.1
+     - 10.42.99.129
    * - **IP Address Management (IPAM)**
      - Aktiviert
      - Aktiviert
    * - **DHCP Pool**
-     - 10.38.193.50  - 125
-     - 10.38.193.132 - 253
+     - 10.42.99.50  - 125
+     - 10.42.99.132 - 253
    * - **Domain**
      - NTNXLAB.local
      - NTNXLAB.local
    * - **DNS**
-     - 10.38.193.40 (DC VM)
-     - 10.38.193.40 (DC VM)
-   
+     - 10.42.99.41 (DC VM)
+     - 10.42.99.41 (DC VM)

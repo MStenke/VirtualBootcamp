@@ -16,20 +16,20 @@
    :hidden:
 
    Lab1/lab1
-
    Lab2/lab2
-
    Lab3/lab3
-
-   Lab4/lab4
-   
-   Lab5/lab5
-   
-   Lab6/lab6
-   
+   Lab4/lab4   
+   Lab5/lab5   
+   Lab6/lab6   
    Lab7/lab7
    
-   
+.. toctree::
+   :maxdepth: 2
+   :caption: Optional
+   :hidden:
+
+   files/files
+
 
 .. _welcome:
 

@@ -74,10 +74,10 @@ Die folgenden VMs wurden u.a. bereits auf dem Cluster ausgerollt:
      - ntnxlab.local Domain Controller
    * - **NTNX-BootcampFS-1**
      - 10.42.99.53 / 10.42.99.174
-     - Nutanix File Server VM
+     - Nutanix File Server
    * - **NTNX-FA-BootcampFileAnalytics**
      - 10.42.99.132
-     - Nutanix File Analytics VM
+     - Nutanix File Analytics
 
 
 Images / VM Vorlagen & ISOs

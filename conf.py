@@ -12,7 +12,6 @@
 #
 import os
 import sys
-#import sphinx_bootstrap_theme
 import sphinx_fontawesome
 import sphinx_copybutton
 # sys.path.insert(0, os.path.abspath('.'))

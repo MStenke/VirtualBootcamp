@@ -1,4 +1,4 @@
-.. title:: Nutanix Virtual Technology Bootcamp
+.. title:: Virtual Technology Bootcamp
 
 .. toctree::
    :maxdepth: 2
@@ -31,7 +31,7 @@
    files/files
 
 
-.. _welcome:
+.. _getting_started:
 
 -----------------------------------
 Herzlich willkommen auf dem Nutanix

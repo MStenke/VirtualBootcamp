@@ -1,19 +1,17 @@
 .. clusteraccess:
 
-.. zugang:
-
 -----------------------
 Zugang zur Lab Umgebung
 -----------------------
 
 Zugangs-Übersicht
-------------------
++++++++++++++++++
 
 Die Lab Umgebung stehen physisch in der USA im Bundesstaat Arizona (Phoenix). Um auf diese zugreifen zu können wird ein Remote Zugriff benötigt.
 Hierfür stehen 3 Optionen zur Auswahl: **Nutanix Frame VDI**, **Pulse VPN** *ODER* **Parallel VDI Zugang.**
 
 Frame VDI Client
-----------------
+++++++++++++++++
 
 .. note::
    Die Nutanix Frame VDI Lösung ist i.d.R. der einfachste und unkomplizierteste Weg auf die Umgebung zuzugreifen. Hierfür wird eine VDI Session mittels des Browsers aufgebaut ohne, dass etwas auf Ihren Rechner installiert werden muss. Beachten Sie aber Bitte, dass Frame eine VDI Session innerhalb ihres Browsers aufbaut, sprich schließen Sie den Browser oder den Tab ist die Session auch beendet.
@@ -35,7 +33,7 @@ Frame VDI Client
 .. figure:: images/frame-desktop.png
 
 Pulse Secure VPN Client
-------------------------
++++++++++++++++++++++++
 
 .. note::
    Um den VPN Zugang zu nutzen muss ein VPN Client installiert werden, dafür werden Administrator Rechte auf Ihrem Laptop benötigt.
@@ -62,8 +60,8 @@ Pulse Secure VPN Client
 
 .. figure:: images/pulseconnected.png
 
-Parallels VDI Zugang (optional)
--------------------------------
+Parallels VDI Zugang
+++++++++++++++++++++
 .. note::
   Die deutlich empfohlene Lösung um auf die HPoC Umgebung zuzugreifen ist die Frame VDI oder Pulse VPN Verbindung, da die Parallel VDI Verbindung i.d.R. deutlich langsamer ist. Für die Fälle in denen aufgrund diverser Gründe (u.a. fehlende lokale Admin Rechte) keine Pulse VPN Verbindung möglich ist, besteht alternativ noch die Option mittels Parallel VDI auf die Umgebung (u.a. auch ohne Installation eines lokalen Clients) zuzugreifen.
 

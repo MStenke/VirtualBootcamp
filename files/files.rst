@@ -6,13 +6,13 @@ Nutanix Files
 
 *Die geschätzte Zeit für die Durchführung dieses Labs beträgt 45 Minuten.*
 
-Traditionell war der Dateispeicher ein weiteres Silo innerhalb der IT, das unnötige Komplexität mit sich brachte und unter den gleichen Skalierungsproblemen und dem Mangel an kontinuierlicher Innovation litt, die beim SAN-Speicher auftreten. Nutanix glaubt, dass in der Enterprise Cloud kein Platz für Silos ist. Durch die Annäherung an den Dateispeicher als App, die in Software auf einem bewährten HCI-Kern ausgeführt wird, bietet Nutanix Files durch One-Click-Management hohe Leistung, Skalierbarkeit und schnelle Innovation.
+Traditionell war der Dateispeicher ein weiteres Silo innerhalb der IT, das unnötige Komplexität mit sich brachte und unter den gleichen Skalierungsproblemen und dem Mangel an kontinuierlicher Innovation litt, die beim SAN-Speicher auftreten. Nutanix glaubt, dass in der Enterprise Cloud kein Platz für Silos ist. Durch die Annäherung an den Dateispeicher als App, die in Software auf einer bewährten HCI-Lösung ausgeführt wird, bietet Nutanix Files durch One-Click-Management hohe Leistung, Skalierbarkeit und schnelle Innovation.
 
 **In dieser Übung arbeiten Sie mit Nutanix Files, um SMB-Freigaben und NFS-Exporte zu verwalten und die neuen Funktionen für die Bereitstellung von Dateien mit File Analytics zu erkunden.**
 
 Aus Zeitgründen und zur gemeinsamen Nutzung von Infrastrukturressourcen wurde in Ihrem Cluster bereits ein Dateicluster bereitgestellt. Der **BootcampFS** - File Server ist eine Einzelknoteninstanz. Typische **Nutanix Files** Installationen beginnen mit 3 File-Server-VMs und können je nach benötigter Leistung per Scale-up und Scale-out erweitert werden.
 
-**BootcampFS** wurde so konfiguriert, dass es das **primäre** Netzwerk für die Kommunikation mit dem Back-End-Speicher, iSCSI-Verbindungen vom **CVM** zu Volume-Groups und das **sekundäre** Netzwerk für die Kommunikation mit Clients, Active Directory, Antiviren-Diensten usw. verwendet.
+**BootcampFS** wurde so konfiguriert, dass es das **primäre** Netzwerk für die Kommunikation mit dem Back-End-Speicher, iSCSI-Verbindungen von **CVM** zu Volume-Groups und das **sekundäre** Netzwerk für die Kommunikation mit Clients, Active Directory, Antiviren-Diensten usw. verwendet.
 
 .. figure:: images/1.png
 
@@ -42,9 +42,9 @@ Freigabe erstellen
 #. Füllen Sie die folgenden Felder aus:
 
    - **Name** - *Initialen*\ **-FiestaShare**
-   - **Description (Optional)** - Fiesta App Team-Freigabe, die von ProduktManagement, Entwicklung und Marketing verwendet wird.
+   - **Description (Optional)** - Fiesta App Team-Freigabe, die von Produkt-Management, Entwicklung und Marketing verwendet wird.
    - **File Server** - **BootcampFS**
-   - **Share Path (Optional)** - Leer lassen. In diesem Feld können Sie einen vorhandenen Pfad angeben, in dem die verschachtelte Freigabe (nested share) erstellt werden soll.
+   - **Share Path (Optional)** - Leer lassen. In diesem Feld können Sie einen vorhandenen Pfad angeben, in dem eine verschachtelte Freigabe (nested share) erstellt werden soll.
    - **Max Size (Optional)** - 200 GiB
    - **Select Protocol** - SMB
 
@@ -73,10 +73,10 @@ Freigabe erstellen
 #. Überprüfen Sie die **Summary** und klicken Sie auf **Create**.
 
    .. figure:: images/4.png
-   
+
    Es ist üblich, dass Freigaben, die von vielen Menschen verwendet werden, Quoten nutzen, um einen fairen Umgang mit Ressourcen sicherzustellen. Nutanix Files bietet die Möglichkeit, entweder weiche oder harte Quoten pro Freigabe für einzelne Benutzer in Active Directory oder für bestimmte Active Directory-Sicherheitsgruppen festzulegen.
    
-#. In **Prism Element > File Server > Share/Export**, Ihren Anteil aus und klicken Sie **+ Add Quota Policy**.
+#. Wählen Sie in **Prism Element > File Server > Share/Export**, Ihren Share aus und klicken Sie **+ Add Quota Policy**.
 
 #. Füllen Sie die folgenden Felder aus und klicken Sie auf **Save**:
 
@@ -530,7 +530,7 @@ Da die Standardzuordnung darin besteht, den Zugriff zu verweigern, wird der Fehl
 Zusammenfassung
 +++++++++++++++
 
-Was sind die wichtigsten Dinge, die Sie über **Nutanix Files** wissen sollten ?
+Was sind die wichtigsten Dinge, die Sie über **Nutanix Files** wissen sollten?
 
 - Files kann schnell auf vorhandenen Nutanix-Clustern bereitgestellt werden und bietet SMB- und NFS-Speicher für Benutzerfreigaben, Basisverzeichnisse, Abteilungsfreigaben, Anwendungen und andere allgemeine Dateispeicheranforderungen.
 - Files ist keine punktuelle Lösung. VM-, Datei-, Block- und Objektspeicher können alle von derselben Plattform mit denselben Verwaltungstools bereitgestellt werden, wodurch Komplexität und Verwaltungssilos reduziert werden.

@@ -128,34 +128,36 @@ Testen der Freigabe
    - Das Verwalten des Zugriffs für andere Benutzer unterscheidet sich nicht von anderen SMB-Freigaben.
 
 
-#. From ``\\BootcampFS.ntnxlab.local\``, right-click *Initials*\ **-FiestaShare > Properties**.
+#. Klicken Sie von ``\\BootcampFS.ntnxlab.local\`` mit der rechten Maustaste auf *Initialen*\ **-FiestaShare > Properties**.
 
-   #. Select the **Security** tab and click **Advanced**.
+   #. Wählen Sie die Registerkarte **Security** und klicken Sie auf **Advanced**.
 
       .. figure:: images/6.png
 
-   #. Select **Users (BootcampFS\\Users)** and click **Remove**.
-
-   #. Click **Add**.
-
-   #. Click **Select a principal** and specify **Everyone** in the **Object Name** field. Click **OK**.
+   #. Wählen Sie **Users (BootcampFS\\Users)** und klicken Sie auf **Remove**.
 
       .. figure:: images/7.png
 
-   #. Fill out the following fields and click **OK**:
+   #. Klicken Sie auf **Add**.
 
-      - **Type** - Allow
-      - **Applies to** - This folder only
-      - Select **Read & execute**
-      - Select **List folder contents**
-      - Select **Read**
-      - Select **Write**
+   #. Klicken Sie auf **Select a principal** und geben Sie im Feld **Object Name** - **Everyone** an. Klicken Sie auf **OK**.
 
       .. figure:: images/8.png
 
-   #. Click **OK > OK > OK** to save the permission changes.
+   #. Füllen Sie die folgenden Felder aus und klicken Sie auf **OK**:
 
-   All users will now be able to create folders and files within the *Initials*\ **-FiestaShare** share.
+      - **Type** - Allow
+      - **Applies to** - This folder only
+      - Wählen Sie  **Read & execute**
+      - Wählen Sie  **List folder contents**
+      - Wählen Sie  **Read**
+      - Wählen Sie  **Write**
+
+      .. figure:: images/8b.png
+
+   #. Wählen Sie auf **OK > OK > OK**, um die Berechtigungsänderungen zu speichern.
+
+   Alle Benutzer können jetzt Ordner und Dateien in der *Initialien*\ **-FiestaShare** Freigabe erstellen.
 
 #. Öffnen Sie **PowerShell** und versuchen Sie, eine Datei mit einem blockierten Dateityp zu erstellen, indem Sie den folgenden Befehl ausführen:
 

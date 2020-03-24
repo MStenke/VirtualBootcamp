@@ -11,7 +11,7 @@ Dieses CentOS VM-Image wird mit Paketen bereitgestellt, die zur Unterstützung m
 
 .. raw:: html
 
-  <strong><font color="red">Stellen Sie die VM nur einmal bereit, sie wird u.U. in mehreren Labs verwendet.</font></strong>
+  <strong><font color="red">Stellen Sie die VM nur einmal bereit, sie wird u.U. in mehreren Labs verwendet.</font></strong><br />
 
 Bereitstellen von CentOS
 ++++++++++++++++++++++++

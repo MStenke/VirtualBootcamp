@@ -1,8 +1,8 @@
 .. _files:
 
--------------
-Nutanix Files
--------------
+--------------------
+Lab 8: Nutanix Files
+--------------------
 
 *Die geschätzte Zeit für die Durchführung dieses Labs beträgt 45 Minuten.*
 

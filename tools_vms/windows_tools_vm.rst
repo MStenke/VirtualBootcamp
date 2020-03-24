@@ -4,10 +4,10 @@
 Windows Tools VM
 ----------------
 
-Overview
+Übersicht
 +++++++++
 
-This Windows Server 2012 R2 image comes pre-installed with a number of tools, including:
+Dieses Windows Server 2012 R2-Image ist mit einer Reihe von Tools vorinstalliert, darunter:
 
 - Microsoft Remote Server Administration Tools (RSAT)
 - PuTTY, CyberDuck, WinSCP
@@ -17,52 +17,43 @@ This Windows Server 2012 R2 image comes pre-installed with a number of tools, in
 - pgAdmin
 - Chocolatey Package Manager
 
-Deploy this VM on your assigned cluster if directed to do so as part of **Lab Setup**.
+Stellen Sie diese VM auf Ihrem zugewiesenen Cluster bereit, wenn Sie im Rahmen von **Lab Setup** dazu aufgefordert werden.
 
 .. raw:: html
 
-  <strong><font color="red">Only deploy the VM once, it does not need to be cleaned up as part of any lab completion.</font></strong>
+  <strong><font color="red">Stellen Sie die VM nur einmal bereit, sie wird u.U. in mehreren Labs verwendet.</font></strong>
 
-Deploying Tools VM
-++++++++++++++++++
+Bereitstellen der Tools VM 
+++++++++++++++++++++++++++
 
-In **Prism Central** > select :fa:`bars` **> Virtual Infrastructure > VMs**, and click **Create VM**.
+In **Prism Central** > auswählen :fa:`bars` **> Virtual Infrastructure > VMs**, und klicken Sie auf **Create VM**.
 
-Fill out the following fields:
+Füllen Sie die folgenden Felder aus:
 
 - **Name** - *Initials*-Windows-ToolsVM
-- **Description** - (Optional) Description for your VM.
+- **Description** - (Optional) Beschreibung für Ihre VM.
 - **vCPU(s)** - 1
 - **Number of Cores per vCPU** - 2
 - **Memory** - 4 GiB
 
-- Select **+ Add New Disk**
+- Wählen Sie **+ Add New Disk**
     - **Type** - DISK
     - **Operation** - Clone from Image Service
     - **Image** - ToolsVM.qcow2
-    - Select **Add**
+    - Wählen Sie **Add**
 
-.. -------------------------------------------------------------------------------------
-.. The Below as soon as 5.11 is GA and we want to run that version for our workshops!!!!
-
-.. - **Boot Configuration**
+ - **Boot Configuration**
  ..  - Leave the default selected **Legacy Boot**
 
-   .. .. note::
-   ..  At the following URL you can find the supported Operating Systems
-   ..  http://my.nutanix.com/uefi_boot_support
-
-.. -------------------------------------------------------------------------------------
-
-- Select **Add New NIC**
+- Wählen Sie **Add New NIC**
     - **VLAN Name** - Secondary
-    - Select **Add**
+    - Wählen Sie **Add**
 
-Click **Save** to create the VM.
+Klicken Sie auf **Save**, um die VM zu erstellen.
 
-Power on the VM.
+Schalten Sie die VM ein.
 
-Login to the VM via RDP or Console session, using the following credentials:
+Melden Sie sich über eine RDP- oder Konsolensitzung mit den folgenden Anmeldeinformationen bei der VM an:
 
-- **Username** - NTNXLAB\\Administrator
-- **password** - nutanix/4u
+- **Benutzername** - NTNXLAB\\Administrator
+- **Passwort** - nutanix/4u

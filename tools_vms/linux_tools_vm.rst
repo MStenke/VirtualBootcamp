@@ -4,66 +4,54 @@
 Linux Tools VM
 ---------------
 
-Overview
+Übersicht
 +++++++++
 
-This CentOS VM image will be staged with packages used to support multiple lab exercises.
-
-Deploy this VM on your assigned cluster if directed to do so as part of **Lab Setup**.
+Dieses CentOS VM-Image wird mit Paketen bereitgestellt, die zur Unterstützung mehrerer Lab-Übungen verwendet werden. Stellen Sie diese VM auf Ihrem zugewiesenen Cluster bereit, wenn Sie im Rahmen von **Lab Setup** dazu aufgefordert werden.
 
 .. raw:: html
 
-  <strong><font color="red">Only deploy the VM once, it does not need to be cleaned up as part of any lab completion.</font></strong>
+  <strong><font color="red">Stellen Sie die VM nur einmal bereit, sie wird u.U. in mehreren Labs verwendet.</font></strong>
 
-Deploying CentOS
-++++++++++++++++
+Bereitstellen von CentOS
+++++++++++++++++++++++++
 
-In **Prism Central** > select :fa:`bars` **> Virtual Infrastructure > VMs**, and click **Create VM**.
+In **Prism Central** > auswählen :fa:`bars` **> Virtual Infrastructure > VMs** und klicken Sie **Create VM**.
 
-Fill out the following fields:
+Füllen Sie die folgenden Felder aus:
 
-- **Name** - *Initials*-Linux-ToolsVM
-- **Description** - (Optional) Description for your VM.
+- **Name** - *Initialen*-Linux-ToolsVM
+- **Description** - (Optional) Beschreibung für Ihre VM.
 - **vCPU(s)** - 1
 - **Number of Cores per vCPU** - 2
 - **Memory** - 2 GiB
 
-- Select **+ Add New Disk**
+- Wählen Sie **+ Add New Disk**
     - **Type** - DISK
     - **Operation** - Clone from Image Service
     - **Image** - CentOS7.qcow2
-    - Select **Add**
+    - Wählen Sie **Add**
 
-.. -------------------------------------------------------------------------------------
-.. The Below as soon as 5.11 is GA and we want to run that version for our workshops!!!!
+- **Boot Configuration**
+    - Leave the default selected **Legacy Boot**
 
-.. - **Boot Configuration**
- ..  - Leave the default selected **Legacy Boot**
-
-   .. .. note::
-   ..  At the following URL you can find the supported Operating Systems
-   ..  http://my.nutanix.com/uefi_boot_support
-
-.. -------------------------------------------------------------------------------------
-
-
-- Select **Add New NIC**
+- Wählen Sie **Add New NIC**
     - **VLAN Name** - Secondary
-    - Select **Add**
+    - Wählen Sie **Add**
 
-Click **Save** to create the VM.
+Klicken Sie auf **Save**, um die VM zu erstellen.
 
-Power on the VM.
+Schalten Sie die VM ein.
 
 Installing Tools
 ++++++++++++++++
 
-Login to the VM via ssh or Console session, using the following credentials:
+Melden Sie sich über die SSH- oder Konsolensitzung mit den folgenden Anmeldeinformationen bei der VM an:
 
-- **Username** - root
-- **password** - nutanix/4u
+- **Benutzername** - root
+- **Passwort** - nutanix/4u
 
-Install the software needed by running the following commands:
+Installieren Sie die benötigte Software, indem Sie die folgenden Befehle ausführen:
 
 .. code-block:: bash
 
@@ -73,10 +61,10 @@ Install the software needed by running the following commands:
   npm install -g express
 
 
-Configuring NTP
-...............
+NTP konfigurieren 
+.................
 
-Enable and configure NTP by running the following commands:
+Aktivieren und konfigurieren Sie NTP, indem Sie die folgenden Befehle ausführen:
 
 .. code-block:: bash
 
@@ -85,10 +73,10 @@ Enable and configure NTP by running the following commands:
   ntpdate -u -s 0.pool.ntp.org 1.pool.ntp.org 2.pool.ntp.org 3.pool.ntp.org
   systemctl restart ntpd
 
-Disabling Firewall and SELinux
-..............................
+Deaktivieren von Firewall und SELinux 
+.....................................
 
-Disable the firewall and SELinux by running the following commands:
+Deaktivieren Sie die Firewall und SELinux, indem Sie die folgenden Befehle ausführen:
 
 .. code-block:: bash
 
@@ -97,10 +85,10 @@ Disable the firewall and SELinux by running the following commands:
   setenforce 0
   sed -i 's/enforcing/disabled/g' /etc/selinux/config /etc/selinux/config
 
-Installing Python
-.................
+Installation von Python
+.......................
 
-Install Python by running the following commands:
+Installieren Sie Python, indem Sie die folgenden Befehle ausführen:
 
 .. code-block:: bash
 

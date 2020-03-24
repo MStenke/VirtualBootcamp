@@ -13,7 +13,7 @@ Hierfür stehen 3 Optionen zur Auswahl: **Nutanix Frame VDI**, **Pulse VPN** *od
 Die Lab-Zugangsdaten können Sie hier einsehen: https://docs.google.com/spreadsheets/d/1asRAkBsFX0j_fvTCDiDsP-N1B7yQBbiGSwYZz8SqbNw/edit#gid=0
 
 .. note::
-   Bitte hinterlegen Sie dort kurz welche Benutzerkennung Sie verwenden, sodass diese nicht doppelt belegt wird und Sie sich gegenseitig aus der Session werfen.
+   Bitte hinterlegen Sie dort kurz welche Benutzerkennung Sie jeweils verwenden, sodass diese nicht doppelt verwendet wird und Sie sich gegenseitig aus der Session werfen.
 
 Frame VDI Client
 ++++++++++++++++

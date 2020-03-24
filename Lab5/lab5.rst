@@ -1,4 +1,4 @@
-.. lab5:
+.. _lab5:
 
 ------------------------------
 Lab 5: Verwalten von Workloads

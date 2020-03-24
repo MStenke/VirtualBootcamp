@@ -1,10 +1,10 @@
-.. clusteraccess:
+.. _clusteraccess:
 
 -----------------------
 Zugang zur Lab Umgebung
 -----------------------
 
-Zugangs-Übersicht
+Zugangs Übersicht
 +++++++++++++++++
 
 Die Lab Umgebung stehen physisch in der USA im Bundesstaat Arizona (Phoenix). Um auf diese zugreifen zu können wird ein Remote Zugriff benötigt.

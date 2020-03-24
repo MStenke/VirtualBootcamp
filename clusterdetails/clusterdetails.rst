@@ -1,4 +1,4 @@
-.. clusterdetails:
+.. _clusterdetails:
 
 ------------------------
 Bootcamp Cluster Details

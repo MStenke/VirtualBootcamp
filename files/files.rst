@@ -1,4 +1,4 @@
-.. title:: Files
+.. _files:
 
 -------------
 Nutanix Files

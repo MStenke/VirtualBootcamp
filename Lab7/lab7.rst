@@ -1,4 +1,4 @@
-.. lab7:
+.. _lab7:
 
 --------------------
 Lab 7: Prism Central

@@ -1,4 +1,4 @@
-.. lab2:
+.. _lab2:
 
 ----------------------------
 Lab 2: Storage Konfiguration

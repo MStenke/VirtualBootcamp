@@ -1,4 +1,4 @@
-.. lab3:
+.. _lab3:
 
 -----------------------------
 Lab 3: Netzwerk Konfiguration

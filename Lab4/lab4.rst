@@ -1,4 +1,4 @@
-.. lab4:
+.. _lab4:
 
 ----------------------------------
 Lab 4: Bereitstellen von Workloads

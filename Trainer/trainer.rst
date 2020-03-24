@@ -1,4 +1,4 @@
-.. trainer:
+.. _trainer:
 
 ---------------------
 Ihr Drill Instructor

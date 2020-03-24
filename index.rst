@@ -33,9 +33,9 @@
 
 .. _welcome:
 
--------------------------------------------
-Herzlich willkommen auf dem Nutanix Virtual
--------------------------------------------
+-----------------------------------
+Herzlich willkommen auf dem Nutanix
+-----------------------------------
 
 .. figure:: images/Intro.png
 

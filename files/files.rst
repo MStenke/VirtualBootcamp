@@ -173,8 +173,8 @@ Testen der Freigabe
 
    In der nächsten Übung erfahren Sie, wie Dateien weitere Einblicke in die Verwendung der einzelnen Dateiserver und Freigaben geben können.
 
-File Analytics
-++++++++++++++
+Nutanix File Analytics
+++++++++++++++++++++++
 In dieser Übung lernen Sie die neuen, integrierten Funktionen für die Dateianalyse kennen, die mit Nutanix-Files Analytics zur Verfügung stehen. Dazu gehören das Scannen vorhandener Freigaben, das Erstellen von Anomaliewarnungen und das Überprüfen von Überwachungsdetails. File Analytics wird in wenigen Minuten als eigenständige VM über einen automatisierten One-Click-Vorgang in Prism Element bereitgestellt. Diese VM wurde bereits in Ihrer Umgebung bereitgestellt und aktiviert.
 
 #. In **Prism Element > File Server > File Server**, wählen Sie **BootcampFS** und klicken Sie auf **File Analytics**.
@@ -353,10 +353,10 @@ Export erstellen
       - Diese Snapshots werden als .snapshot-Verzeichnis für NFS-Clients angezeigt.
    - **Authentication** - System
    - **Default Access (For All Clients)** - No Access
-   - Select **+ Add exceptions**
+   - Wählen Sie **+ Add exceptions**
    - **Clients with Read-Write Access** - *Die ersten 3 Oktette Ihres Clusternetzwerks*\ .* (z.B. 10.42.99.\*)
 
-   Standardmäßig ermöglicht ein NFS-Export Lese- / Schreibzugriff auf jeden Host, der den Export bereitstellt. Dies kann jedoch auf bestimmte IPs oder IP-Bereiche beschränkt werden.
+   Standardmäßig ermöglicht ein NFS-Export jedem Host ein Lese- / Schreibzugriff der den Export mounted. Dies kann jedoch auf bestimmte IPs oder IP-Bereiche beschränkt werden.
 
 #. Klicken Sie auf **Next**.
 
@@ -365,37 +365,37 @@ Export erstellen
 Testen des Exports
 ..................
 
-You will first provision a CentOS VM to use as a client for your Files export.
+Sie stellen zunächst eine CentOS-VM bereit, die Sie als Client für Ihren Dateiexport verwenden können.
 
-.. note:: If you have already deployed the :ref:`linux_tools_vm` as part of another lab, you may use this VM as your NFS client instead.
+.. note:: Wenn Sie die :ref:`linux_tools_vm` bereits als Teil eines anderen Labors bereitgestellt haben, können Sie diese VM stattdessen als NFS-Client verwenden.
 
-#. In **Prism > VM > Table**, click **+ Create VM**.
+#. In **Prism > VM > Table**, klicken Sie auf **+ Create VM**.
 
-#. Fill out the following fields:
+#. Füllen Sie die folgenden Felder aus:
 
-   - **Name** - *Initials*\ -NFS-Client
-   - **Description** - CentOS VM for testing Files NFS export
+   - **Name** - *Initialien*\ -NFS-Client
+   - **Description** - CentOS VM zum Testen des NFS-Exports von Dateien
    - **vCPU(s)** - 2
    - **Number of Cores per vCPU** - 1
    - **Memory** - 2 GiB
    - Select **+ Add New Disk**
       - **Operation** - Clone from Image Service
       - **Image** - CentOS
-      - Select **Add**
-   - Select **Add New NIC**
+      - Wählen Sie **Add**
+   - Wählen Sie **Add New NIC**
       - **VLAN Name** - Secondary
-      - Select **Add**
+      - Wählen Sie **Add**
 
-#. Click **Save**.
+#. Klicken Sie auf **Save**.
 
-#. Select the *Initials*\ **-NFS-Client** VM and click **Power on**.
+#. Wählen Sie die *Initialien*\ **-NFS-Client** VM und klicken Sie auf **Power on**.
 
-#. Note the IP address of the VM in Prism, and connect via SSH using the following credentials:
+#. Notieren Sie sich die IP-Adresse der VM in Prism und stellen Sie über SSH eine Verbindung mit den folgenden Anmeldeinformationen her:
 
    - **Username** - root
    - **Password** - nutanix/4u
 
-#. Execute the following:
+#. Führen Sie Folgendes aus:
 
      .. code-block:: bash
 
@@ -416,24 +416,24 @@ You will first provision a CentOS VM to use as a client for your Files export.
        total 1
        drwxrwxrwx. 2 root root 2 Mar  9 18:53 logs
 
-#. Observe that the **logs** directory is mounted in ``/filesmnt/logs``.
+#. Beachten Sie, dass das **logs** - Verzeichnis in ``/filesmnt/logs`` gemounted ist.
 
-#. Reboot the VM and observe the export is no longer mounted. To persist the mount, add it to ``/etc/fstab`` by executing the following:
+#. Starten Sie die VM neu und stellen Sie fest, dass der Export nicht mehr bereitgestellt wird. Um den Mount beizubehalten, fügen Sie ihn zu ``/etc/fstab`` hinzu, indem Sie Folgendes ausführen:
 
      .. code-block:: bash
 
        echo 'Intials-Files.ntnxlab.local:/ /filesmnt nfs4' >> /etc/fstab
 
-#. The following command will add 100 2MB files filled with random data to ``/filesmnt/logs``:
+#. Mit dem folgenden Befehl werden 100 2-MB-Dateien mit zufälligen Daten hinzugefügt ``/filesmnt/logs``:
 
      .. code-block:: bash
 
        mkdir /filesmnt/logs/host1
        for i in {1..100}; do dd if=/dev/urandom bs=8k count=256 of=/filesmnt/logs/host1/file$i; done
 
-#. Return to **Prism > File Server > Share > logs** to monitor performance and usage.
+#. Kehren Sie zu **Prism > File Server > Share > logs** zurück, um die Leistung und Verwendung zu überwachen.
 
-   Note that the utilization data is updated every 10 minutes.
+   Beachten Sie, dass die Nutzungsdaten alle 10 Minuten aktualisiert werden.
 
 Multiprotokoll-Freigaben
 ++++++++++++++++++++++++

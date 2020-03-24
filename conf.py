@@ -19,7 +19,7 @@ import sphinx_copybutton
 
 # -- Project information -----------------------------------------------------
 
-project = 'Nutanix Virtual Technology Bootcamp'
+project = 'Virtual Technology Bootcamp'
 copyright = '2020, Nutanix Germany GmbH | '
 author = 'Martin Stenke'
 

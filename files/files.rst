@@ -92,11 +92,15 @@ Freigabe erstellen
 Testen der Freigabe
 ...................
 
-#. Connect to your *Initials*\ **-WinTools** VM via VM console as a **non-Administrator NTNXLAB** domain account:
+.. note::
+
+      Um die Freigabe zu testen zu können, benötigen Sie eine Windows VM ausrollen die Sie im folgenden verwenden. Folgen Sie dafür der Anleitung für die **Windows Tools VM** (optionale Labs).
+
+#. Stellen Sie über die VM-Konsole als **non-Administrator NTNXLAB** - Domänenkonto eine Verbindung zu Ihrer *Initials*\ **-WinTools** VM her:
 
    .. note::
 
-      You will not be able to connect using these accounts via RDP.
+      Mit diesen Konten können Sie keine Verbindung über RDP herstellen.
 
    - user01 - user25
    - devuser01 - devuser25
@@ -107,23 +111,24 @@ Testen der Freigabe
 
    .. note::
 
-     The Windows Tools VM has already been joined to the **NTNXLAB.local** domain. You could use any domain joined VM to complete the following steps.
+     Die Windows Tools-VM wurde bereits der Domäne NTNXLAB.local hinzugefügt. Sie können jede VM mit Domänenbeitritt verwenden, um die folgenden Schritte auszuführen.
 
-#. Open ``\\BootcampFS.ntnxlab.local\`` in **File Explorer**.
+#. Öffnen Sie ``\\BootcampFS.ntnxlab.local\`` im **File Explorer**.
 
-#. Open a browser within your *Initials*\ **-WinTools** desktop and download sample data to populate in your share:
+#. Öffnen Sie einen Browser auf Ihrem *Initialien*\ **-WinTools** Desktop und laden Sie Beispieldaten herunter, um sie in Ihre Freigabe einzufügen:
 
-   - **If using a PHX cluster** - http://10.42.194.11/workshop_staging/peer/SampleData_Small.zip
-   - **If using a RTP cluster** - http://10.55.251.38/workshop_staging/peer/SampleData_Small.zip
+   - **Bei Verwendung eines PHX-Clusters** - http://10.42.194.11/workshop_staging/peer/SampleData_Small.zip
+   - **Bei Verwendung eines RTP-Clusters** - http://10.55.251.38/workshop_staging/peer/SampleData_Small.zip
 
-#. Extract the contents of the zip file into your file share.
+#. Extrahieren Sie den Inhalt der Zip-Datei in Ihre Dateifreigabe.
 
    .. figure:: images/5.png
 
-   - The **NTNXLAB\\Administrator** user was specified as a Files Administrator during deployment of the Files cluster, giving it read/write access to all shares by default.
-   - Managing access for other users is no different than any other SMB share.
+   - Der Benutzer **NTNXLAB\\Administrator** wurde während der Bereitstellung des Dateiclusters als Files Administrator angegeben, sodass er standardmäßig Lese- / Schreibzugriff auf alle Freigaben hat.
+   - Das Verwalten des Zugriffs für andere Benutzer unterscheidet sich nicht von anderen SMB-Freigaben.
 
-..   #. From ``\\BootcampFS.ntnxlab.local\``, right-click *Initials*\ **-FiestaShare > Properties**.
+
+#. From ``\\BootcampFS.ntnxlab.local\``, right-click *Initials*\ **-FiestaShare > Properties**.
 
    #. Select the **Security** tab and click **Advanced**.
 
@@ -152,19 +157,19 @@ Testen der Freigabe
 
    All users will now be able to create folders and files within the *Initials*\ **-FiestaShare** share.
 
-#. Open **PowerShell** and try to create a file with a blocked file type by executing the following command:
+#. Öffnen Sie **PowerShell** und versuchen Sie, eine Datei mit einem blockierten Dateityp zu erstellen, indem Sie den folgenden Befehl ausführen:
 
    .. code-block:: PowerShell
 
       New-Item \\BootcampFS\INITIALS-FiestaShare\MyFile.flv
 
-   Observe that creation of the new file is denied.
+   Beachten Sie, dass die Erstellung der neuen Datei abgelehnt wird.
 
-#. Return to **Prism Element > File Server > Share/Export**, select your share. Review the **Share Details**, **Usage** and **Performance** tabs to understand the high level information available on a per share basis, including the number of files & connections, storage utilization over time, latency, throughput, and IOPS.
+#. Kehren Sie zu **Prism Element > File Server > Share/Export** zurück und wählen Sie Ihre Freigabe aus. Überprüfen Sie die **Share Details**, **Usage** und **Performance** Registerkarten die zur Verfügung stehenden Informationen auf Share Ebene, einschließlich der Anzahl der Dateien und Verbindungen, die Speichernutzung im Laufe der Zeit, Latenz, Durchsatz und IOPS.
 
    .. figure:: images/11.png
 
-   In the next exercise, you will see how Files can provide further insights into usage of each File Server and Share.
+   In der nächsten Übung erfahren Sie, wie Dateien weitere Einblicke in die Verwendung der einzelnen Dateiserver und Freigaben geben können.
 
 File Analytics
 ++++++++++++++

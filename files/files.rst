@@ -1,8 +1,8 @@
 .. title:: Files
 
---------------------------------
-Storage Konsolidierung mit Nutanix Files
---------------------------------
+-------------
+Nutanix Files
+-------------
 
 *Die geschätzte Zeit für die Durchführung dieses Labs beträgt 45 Minuten.*
 
@@ -73,6 +73,7 @@ Freigabe erstellen
 #. Überprüfen Sie die **Summary** und klicken Sie auf **Create**.
 
    .. figure:: images/4.png
+   
    Es ist üblich, dass Freigaben, die von vielen Menschen verwendet werden, Quoten nutzen, um einen fairen Umgang mit Ressourcen sicherzustellen. Nutanix Files bietet die Möglichkeit, entweder weiche oder harte Quoten pro Freigabe für einzelne Benutzer in Active Directory oder für bestimmte Active Directory-Sicherheitsgruppen festzulegen.
    
 #. In **Prism Element > File Server > Share/Export**, Ihren Anteil aus und klicken Sie **+ Add Quota Policy**.

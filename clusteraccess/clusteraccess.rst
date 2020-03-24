@@ -2,12 +2,13 @@
 
 .. zugang:
 
----------------------
+-----------------------
 Zugang zur Lab Umgebung
----------------------
+-----------------------
 
 Zugangs-Übersicht
------------------
+------------------
+
 Die Lab Umgebung stehen physisch in der USA im Bundesstaat Arizona (Phoenix). Um auf diese zugreifen zu können wird ein Remote Zugriff benötigt.
 Hierfür stehen 3 Optionen zur Auswahl: **Nutanix Frame VDI**, **Pulse VPN** *ODER* **Parallel VDI Zugang.**
 

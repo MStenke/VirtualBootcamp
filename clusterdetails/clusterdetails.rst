@@ -1,8 +1,8 @@
 .. clusterdetails:
 
---------------------
+------------------------
 Bootcamp Cluster Details
---------------------
+------------------------
 
 Cluster Hardware Details
 ++++++++++++++++++++++++
@@ -15,7 +15,7 @@ Cluster Hardware Details
   Bedenken Sie bitte, dass diese Testumgebung zum einen nicht auf der neuesten Hardware basiert und das zum anderen auf Grund der Entfernung zum Lab-Datacenter entsprechende Latenzen auftreten können. Nichtsdestotrotz lassen sich mit dieser Umgebung die typischen Routineaufgaben bzgl. einer Nutanix-Cluster-Plattform mit einer ausgezeichneten User-Experience testen.
 
 Infrastruktur IPs
-+++++++++++++
++++++++++++++++++
 
 .. list-table::
    :widths: 10 10 10 10

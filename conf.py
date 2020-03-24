@@ -13,14 +13,15 @@
 import os
 import sys
 #import sphinx_bootstrap_theme
-#import sphinx_fontawesome
+import sphinx_fontawesome
+import sphinx_copybutton
 # sys.path.insert(0, os.path.abspath('.'))
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'Nutanix Technology Bootcamp'
-copyright = '2019, Nutanix Germany GmbH | '
+project = 'Nutanix Virtual Technology Bootcamp'
+copyright = '2020, Nutanix Germany GmbH | '
 author = 'Martin Stenke'
 
 
@@ -29,7 +30,10 @@ author = 'Martin Stenke'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.todo']
+extensions = ['sphinx.ext.todo',
+    'sphinx.ext.ifconfig',
+    'sphinx_copybutton',
+    'sphinx_fontawesome']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

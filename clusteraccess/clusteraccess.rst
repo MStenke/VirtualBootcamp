@@ -8,7 +8,12 @@ Zugangs Übersicht
 +++++++++++++++++
 
 Die Lab Umgebung stehen physisch in der USA im Bundesstaat Arizona (Phoenix). Um auf diese zugreifen zu können wird ein Remote Zugriff benötigt.
-Hierfür stehen 3 Optionen zur Auswahl: **Nutanix Frame VDI**, **Pulse VPN** *ODER* **Parallel VDI Zugang.**
+Hierfür stehen 3 Optionen zur Auswahl: **Nutanix Frame VDI**, **Pulse VPN** *oder* **Parallel VDI Zugang.**
+
+Die Lab-Zugangsdaten können Sie hier einsehen: https://docs.google.com/spreadsheets/d/1asRAkBsFX0j_fvTCDiDsP-N1B7yQBbiGSwYZz8SqbNw/edit#gid=0
+
+.. note::
+   Bitte hinterlegen Sie dort kurz welche Benutzerkennung Sie verwenden, sodass diese nicht doppelt belegt wird und Sie sich gegenseitig aus der Session werfen.
 
 Frame VDI Client
 ++++++++++++++++
